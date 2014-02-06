@@ -1,0 +1,15 @@
+/* General */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial;
+}
+
+/* Navigation */
+#navigation ul li {
+    display: inline;
+    list-style-type: none;
+}
