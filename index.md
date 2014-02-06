@@ -2,4 +2,4 @@
 layout: master
 title: Home
 ---
-Welcome to my homepage!
+Nothing to see here yet, try one of the other links.

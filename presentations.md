@@ -3,4 +3,4 @@ layout: master
 title: presentations
 ---
 ##Presentations
-List of my presentations
+Currently there are no presentations available.
