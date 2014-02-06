@@ -2,15 +2,12 @@
 layout: master
 title: Blog
 ---
-<h2>Blog</h2>
-<ul>
 {% for post in site.posts %}
-    <li>
-        <h3><a href="{{post.url}}">{{post.title}}</a></h3>
-        <span class="date">{{ post.date | date_to_string }}</span>
-        <div class="excerpt">
-            {{ post.excerpt }}
-        </div>
-    </li>
+<div class="postexcerpt">
+    <h2><a href="{{post.url}}">{{post.title}}</a></h2>
+    <div class="date">{{ post.date | date_to_string }}</div>
+    <div class="excerpt">
+        {{ post.excerpt }}
+    </div>
+</div>
 {% endfor %}
-</ul>
