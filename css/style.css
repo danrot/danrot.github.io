@@ -1,0 +1,112 @@
+/* General */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 800px;
+    margin: 0 auto 0 auto;
+
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    color: #000;
+    text-decoration: underline;
+}
+
+/* Header */
+#header {
+    height: 200px;
+
+    border-bottom: 1px #999 solid;
+}
+
+#header {
+    text-align: right;
+}
+
+#header h1 {
+    font-size: 96px;
+}
+
+#header h2 {
+    font-size: 60px;
+}
+
+/* Navigation */
+#navigation {
+    padding: 15px 0 15px 0;
+
+    border-bottom: 1px #999 solid;
+
+    font-size: 25px;
+}
+
+#navigation ul {
+    text-align: center;
+}
+
+#navigation ul li {
+    display: inline;
+
+    margin-right: 30px;
+
+    list-style-type: none;
+}
+
+#navigation ul li:last-child {
+    margin-right: 0px;
+}
+
+#navigation ul li a {
+    text-decoration: none;
+}
+
+/* Content */
+#content {
+    margin-top: 30px;
+
+    font-size: 20px;
+}
+
+#content h2 {
+    margin: 0 0 20px 0;
+    font-size: 30px;
+}
+
+#content h3 {
+    margin: 20px 0 10px 0;
+}
+
+#content p {
+    margin: 0 0 10px 0;
+
+    line-height: 32px;
+}
+
+/* Blog */
+#content .postexcerpt {
+    margin: 0 0 30px 0;
+    padding: 0 0 20px 0;
+
+    border-bottom: 1px #ccc solid;
+}
+
+#content .postexcerpt h2 a {
+    text-decoration: none;
+}
+
+#content .postexcerpt .date,
+#content .post .date{
+    margin: -10px 0 10px 0;
+}
+
+/* Presentations */
+#content .presentations {
+    list-style-position: inside;
+
+    line-height: 32px;
+}
