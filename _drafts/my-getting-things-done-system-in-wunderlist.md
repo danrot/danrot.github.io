@@ -1,6 +1,9 @@
 ---
 layout: post
 title: My Getting Things Done system in Wunderlist
+tags:
+    - productivity
+    - wunderlist
 ---
 I have been reading the official Getting Things Done book by David Allen, and now I want to summarize the most important
 lessons I have learnt. These tips work best when used in [Wunderlist](http://www.wunderlist.com), which is my favourite
