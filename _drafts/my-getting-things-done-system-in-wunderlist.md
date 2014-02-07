@@ -14,7 +14,7 @@ procedure for it.
 For me that was by far the most relevant point: Everything has to be written down, doesn't matter if it affects your
 personal or professional life. Otherwise you don't trust the system, and as an effect you don't use it. I am aware of
 the fact that many people don't want to mix personal and professional life (me as well). But getting all these thoughts
-out the head feels really comfortable!
+out the head feels really comfortable\!
 
 ###Introduce lists for your bigger areas of responsibility
 I have to admit, that this one is not that easy to implement, because it's hard to determine how many tasks justify the
@@ -29,7 +29,7 @@ linux operating system be booted up. And if that happens to be the case, I can c
 Wunderlist, and it shows me all the tasks I can work on right now.
 
 ###Only mark real deadlines with a due date
-This is also a very valuable tip: If you set a date on tasks, until when you wish to have finished it, all the other
+This is also a very valuable tip: If you set a date on tasks, until when you wish to have finished them, all the other
 real deadlines lose on priority. That's because the system (at least Wunderlist) doesn't offer any possibility to
 specify the date further, which means you really have to use it for the same meaning all the time. So I agreed on the
 deadline, because these are harder dates then my desired completion.
@@ -45,8 +45,7 @@ to have a regular look at the system. Remove tasks which are not important anymo
 Maybe you can even dump an entire list.
 
 ###Don't be afraid to abuse the system for checklists
-Although this tip doesn't help on getting anything done, but nevertheless it's very useful. First I used Wunderlist only
-for tasks, which I can tick off after a period of time. But I found out that it's really nice for checklists as well. So
-I added a list called checklists, and added a task for every checklist. The content of the checklist goes to the task's
-subtasks. If you know that these tasks are only for reference and will never be done, it even feels ok to let them pend
-undone.
+Although this tip doesn't help on getting anything done it's very useful. First I used Wunderlist only for tasks, which
+I can tick off after a period of time. But I found out that it's really nice for checklists as well. So I added a list
+called checklists, and added a task for every checklist. The content of the checklist goes to the task's subtasks. If
+you know that these tasks are only for reference and will never be done, it even feels ok to let them pend undone.
