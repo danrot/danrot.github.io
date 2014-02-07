@@ -68,6 +68,8 @@ a {
 /* Content */
 #content {
     margin-top: 30px;
+
+    font-size: 20px;
 }
 
 #content h2 {
@@ -82,7 +84,6 @@ a {
 #content p {
     margin: 0 0 10px 0;
 
-    font-size: 20px;
     line-height: 32px;
 }
 
@@ -101,4 +102,11 @@ a {
 #content .postexcerpt .date,
 #content .post .date{
     margin: -10px 0 10px 0;
+}
+
+/* Presentations */
+#content .presentations {
+    list-style-position: inside;
+
+    line-height: 32px;
 }
