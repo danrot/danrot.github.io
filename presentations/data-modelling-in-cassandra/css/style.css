@@ -1,4 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #999;
+    font-family: Verdana, sans-serif;
+}
+
 .step {
-    height: 700px;
-    width: 900px;
+    position: relative;
+
+    height: 850px;
+    width: 1300px;
+}
+
+/* TITLE */
+
+#title .small-title {
+    position: absolute;
+
+    top: 150px;
+    left: 540px;
+
+    font-size: 50px;
+    font-weight: 400;
+    text-shadow: #000 1px 1px 1px;
+}
+
+#title .big-title {
+    position: absolute;
+
+    top: 150px;
+    right: 150px;
+
+    color: #333;
+    font-size: 160px;
+    font-weight: 700;
+    text-shadow: #000 1px 1px 3px;
+}
+
+#title .author {
+    position: absolute;
+
+    right: 150px;
+    top: 600px;
+
+    color: #333;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+#title .author-job {
+    position: absolute;
+
+    right: 150px;
+    top:650px;
+
+    font-size: 25px;
+    text-align: right;
+}
+
+#title .author-job ul {
+    list-style-type: none;
+}
+
+/* CAP */
+#cap {
+    position: absolute;
+    top: 425px;
+    left: 650px;
+
+    margin: -297px 0 0 -451px;
 }
