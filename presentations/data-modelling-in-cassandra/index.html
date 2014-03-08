@@ -10,8 +10,8 @@
     <body class="impress-not-supported">
         <div id="impress">
             <div id="title" class="step" data-x="0" data-y="0">
-                <div class="small-title">Data Modelling in</div>
-                <div class="big-title">Cassandra</div>
+                <h2>Data Modelling in</h2>
+                <h1>Cassandra</h1>
                 <div class="author">Daniel Rotter</div>
                 <div class="author-job">
                     <ul>
@@ -21,8 +21,55 @@
                 </div>
             </div>
 
-            <div id="cap" class="step" data-x="1500" data-y="0">
+            <div id="cap" class="step image slide" data-x="1500" data-y="0">
                 <img src="img/cap.png" />
+            </div>
+            
+            <div id="acid" class="step slide" data-x="3000" data-y="0">
+                <h3>ACID</h3>
+                <ul>
+                    <li>Atomicity</li>
+                    <li>Consistency</li>
+                    <li>Isolation</li>
+                    <li>Durability</li>
+                </ul>
+            </div>
+            
+            <div id="cassandra" class="step image slide" data-x="0" data-y="1500">
+                <img src="img/cassandra_logo.svg" />
+            </div>
+            
+            <div id="columnfamily" class="step slide" data-x="1500" data-y="1500">
+                <h3>Shop</h3>
+                <table class="columnfamily">
+                    <caption>customers</caption>
+                    <tr>
+                        <th rowspan="3">1</th>
+                        <td>fname</td>
+                        <td>lname</td>
+                    </tr>
+                    <tr>
+                        <td>Max</td>
+                        <td>Mustermann</td>
+                    </tr>
+                    <tr>
+                        <td>2014-03-11 11:35</td>
+                        <td>2014-03-11 11:35</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="3">2</th>
+                        <td>fname</td>
+                        <td>lname</td>
+                    </tr>
+                    <tr>
+                        <td>Erika</td>
+                        <td>Mustermann</td>
+                    </tr>
+                    <tr>
+                        <td>2014-03-11 13:20</td>
+                        <td>2014-03-11 13:20</td>
+                    </tr>
+                    </table>
             </div>
         </div>
 

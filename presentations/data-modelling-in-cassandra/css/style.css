@@ -15,9 +15,34 @@ body {
     width: 1300px;
 }
 
+.slide h3 {
+    position: absolute;
+    width: 100%;
+    top: 100px;
+    
+    text-align: center;
+    color: #333;
+    font-size: 100px;
+    font-weight: 700;
+    text-shadow: #000 1px 1px 3px;
+}
+
+.slide ul {
+    position: absolute;
+    width: 100%;
+    top: 300px;
+    
+    list-style-type: none;
+    
+    text-align: center;
+    line-height: 100px;
+    font-size: 60px;
+    text-shadow: #000 1px 1px 1px;
+}
+
 /* TITLE */
 
-#title .small-title {
+#title h2 {
     position: absolute;
 
     top: 150px;
@@ -28,7 +53,7 @@ body {
     text-shadow: #000 1px 1px 1px;
 }
 
-#title .big-title {
+#title h1 {
     position: absolute;
 
     top: 150px;
@@ -62,6 +87,9 @@ body {
 }
 
 #title .author-job ul {
+    top: 0;
+    left: 0;
+    
     list-style-type: none;
 }
 
@@ -72,4 +100,34 @@ body {
     left: 650px;
 
     margin: -297px 0 0 -451px;
+}
+
+/* ACID */
+
+/* Cassandra */
+#cassandra {
+    position: absolute;
+    top: 425px;
+    left: 650px;
+    
+    margin-top: -336px;
+    margin-left: -500px;
+}
+
+#cassandra img {
+    width: 1000px;
+}
+
+/* Column Family */
+.columnfamily caption {
+    font-size: 30px;
+}
+
+.columnfamily table td,
+.columnfamily table th {
+    padding: 10px;
+}
+
+.padding table th {
+    vertical-align: top;
 }
