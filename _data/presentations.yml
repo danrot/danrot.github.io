@@ -3,3 +3,9 @@
   date: 2014-04-08 19:15:00
   url: https://github.com/danrot/EventListener
   conference_url: http://lanyrd.com/2014/vlbgwebdev-april/
+- title: How to build a REST API with Symfony
+  conference: VlbgWebDev
+  date: 2014-11-11 19:15:00
+  url: https://github.com/danrot/articles-api
+  conference_url: http://lanyrd.com/2014/vlbgwebdev-november/
+
