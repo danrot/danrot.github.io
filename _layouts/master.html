@@ -10,15 +10,18 @@
     </head>
     <body>
         <div id="header">
-            <h1>Daniel Rotter</h1>
-            <h2>Web Developer</h2>
-        </div>
-        <div id="navigation">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="https://www.github.com/danrot">GitHub</a></li>
-                <li><a href="https://www.twitter.com/danrot90">Twitter</a></li>
-            </ul>
+            <a href="/" class="home-link">
+                <h1>Daniel Rotter</h1>
+                <h2>Web Developer</h2>
+            </a>
+            <div class="social-links">
+                <a href="https://www.github.com/danrot" class="social-link github-link">
+                    <img src="images/github.svg" />
+                </a>
+                <a href="https://www.twitter.com/danrot90" class="social-link twitter-link">
+                    <img src="images/twitter.svg" />
+                </a>
+            </div>
         </div>
         <div id="content">
             {{ content }}

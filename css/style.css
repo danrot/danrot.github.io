@@ -5,9 +5,6 @@
 }
 
 body {
-    width: 800px;
-    margin: 0 auto 0 auto;
-
     color: #333;
     font-family: Arial, sans-serif;
 }
@@ -17,52 +14,49 @@ a {
     text-decoration: underline;
 }
 
+.home-link {
+    color: #333;
+    text-decoration: none;
+}
+
+.social-links {
+    display: flex;
+    margin-top: -40px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+}
+
+.twitter-link img {
+    height: 40px;
+}
+
+.github-link img {
+    height: 26px;
+}
+
+h1 {
+    font-size: 96px;
+    text-decoration: none;
+}
+
+h2 {
+    font-size: 60px;
+    text-decoration: none;
+}
+
 /* Header */
 #header {
-    height: 200px;
-
     border-bottom: 1px #999 solid;
 }
 
 #header {
     text-align: right;
-}
-
-#header h1 {
-    font-size: 96px;
-}
-
-#header h2 {
-    font-size: 60px;
-}
-
-/* Navigation */
-#navigation {
-    padding: 15px 0 15px 0;
-
-    border-bottom: 1px #999 solid;
-
-    font-size: 25px;
-}
-
-#navigation ul {
-    text-align: center;
-}
-
-#navigation ul li {
-    display: inline;
-
-    margin-right: 30px;
-
-    list-style-type: none;
-}
-
-#navigation ul li:last-child {
-    margin-right: 0px;
-}
-
-#navigation ul li a {
-    text-decoration: none;
 }
 
 /* Content */
