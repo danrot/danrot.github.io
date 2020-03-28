@@ -95,3 +95,7 @@ h3 {
 .content .post .date {
     margin: -10px 0 10px 0;
 }
+
+.content .post .highlighter-rouge {
+    margin: 20px 0;
+}
