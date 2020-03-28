@@ -50,12 +50,11 @@ h2 {
     text-decoration: none;
 }
 
-/* Header */
-#header {
+.header {
     border-bottom: 1px #999 solid;
 }
 
-#header {
+.header {
     text-align: right;
 }
 
