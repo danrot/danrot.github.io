@@ -6,7 +6,7 @@
 
 body {
     color: #333;
-    font-family: Arial, sans-serif;
+    font-family: sans-serif;
 }
 
 a {
@@ -14,26 +14,49 @@ a {
     text-decoration: underline;
 }
 
-h2 {
+h1 {
     margin: 0 0 20px 0;
     font-size: 30px;
 }
 
-h3 {
+h2 {
     margin: 20px 0 10px 0;
+    font-size: 24px;
 }
 
-.home-link {
+.header {
+    border-bottom: 1px #999 solid;
+    text-align: right;
+}
+
+.header .twitter-link img {
+    height: 40px;
+}
+
+.header .github-link img {
+    height: 26px;
+}
+
+.header .title {
+    font-size: 96px;
+}
+
+.header .subtitle {
+    font-size: 60px;
+}
+
+.header .title, .header .subtitle {
     color: #333;
+    display: block;
     text-decoration: none;
 }
 
-.social-links {
+.header .social-links {
     display: flex;
     margin-top: -40px;
 }
 
-.social-link {
+.header .social-link {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,43 +64,17 @@ h3 {
     width: 40px;
 }
 
-.twitter-link img {
-    height: 40px;
-}
-
-.github-link img {
-    height: 26px;
-}
-
-.header h1 {
-    font-size: 96px;
-    text-decoration: none;
-}
-
-.header h2 {
-    font-size: 60px;
-    text-decoration: none;
-}
-
-.header {
-    border-bottom: 1px #999 solid;
-}
-
-.header {
-    text-align: right;
-}
-
 .content {
     margin-top: 30px;
     margin: 30px 20px 0 20px;
 
     font-size: 20px;
+
+    line-height: 32px;
 }
 
 .content p {
-    margin: 0 0 10px 0;
-
-    line-height: 32px;
+    margin: 20px 0;
 }
 
 .content .post-excerpt {
@@ -97,5 +94,10 @@ h3 {
 }
 
 .content .post .highlighter-rouge {
+    background-color: #f8f8f8;
     margin: 20px 0;
+}
+
+.content .post ul {
+    margin-left: 20px;
 }
