@@ -9,6 +9,10 @@ twitter:
     username: danrot90
     card: summary
 
+feed:
+    excerpt_only: true
+
 plugins:
     - jekyll-sitemap
     - jekyll-seo-tag
+    - jekyll-feed

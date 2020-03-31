@@ -1,7 +1,7 @@
 ---
 layout: post
 title: My Getting Things Done system in Wunderlist
-description: Building your own "Getting Things Done" system using a few simple tips, including some that will hopefully boost your productivity.
+excerpt: Building your own "Getting Things Done" system using a few simple tips, including some that will hopefully boost your productivity.
 
 tags:
     - productivity

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Creating highly customizable HTML presentations with markdown and pandoc
-description: Presentations can be created using markdown, a plain file format. There are some available options, but let's see why it pays off to build your own solution.
+excerpt: Presentations can be created using markdown, a plain file format. There are some available options, but let's see why it pays off to build your own solution.
 
 tags:
     - presentations

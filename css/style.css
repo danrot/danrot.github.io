@@ -38,6 +38,10 @@ h2 {
     height: 26px;
 }
 
+.header .feed-link img {
+    height: 26px;
+}
+
 .header .title {
     font-size: 96px;
 }
