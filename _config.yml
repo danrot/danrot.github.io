@@ -1,2 +1,14 @@
+title: Daniel Rotter
+lang: en
+description: A blog about web development in general and about PHP, JavaScript, Linux and its command line in particular.
+
+author:
+    twitter: danrot90
+
+twitter:
+    username: danrot90
+    card: summary
+
 plugins:
     - jekyll-sitemap
+    - jekyll-seo-tag
