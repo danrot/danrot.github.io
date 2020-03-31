@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Testing traits with non-public methods
+description: Testing a trait with PHPUnit is not that easy, especially if it only contains private methods. See how it can be achieved in this step by step introduction.
+
 tags:
     - programming
     - php
