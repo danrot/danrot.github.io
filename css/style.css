@@ -27,6 +27,7 @@ h2 {
 .header {
     border-bottom: 1px #999 solid;
     text-align: right;
+    padding-right: 10px;
 }
 
 .header .twitter-link img {
@@ -100,4 +101,24 @@ h2 {
 
 .content .post ul {
     margin-left: 20px;
+}
+
+.content .post {
+    border-bottom: 1px #999 solid;
+    margin-bottom: 10px;
+}
+
+.content .interactions {
+    text-align: right;
+}
+
+.content .interactions ul {
+    font-size: 16px;
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+.content .interactions ul li {
+    display: inline-block;
+    margin-left: 10px;
 }
