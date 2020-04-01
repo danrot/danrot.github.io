@@ -33,7 +33,15 @@ Then I stumbled upon this tweet of [Max Stoiber](https://twitter.com/mxstbr), wh
 that allows to write slides in markdown and afterwards serve them via a webserver using
 [Gatsby](https://www.gatsbyjs.org/) under the hood. 
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">How to quickly create a talk from scratch 🔥<br><br>1. Write outline with markdown<br>2. Install mdx-deck by <a href="https://twitter.com/jxnblk?ref_src=twsrc%5Etfw">@jxnblk</a> (<a href="https://t.co/Ku6ITph9Tt">https://t.co/Ku6ITph9Tt</a>)<br>3. Add --- and &lt;Notes /&gt; in the right places to split outline into slides<br><br>Done! It does not get faster than presenting your outline 💯</p>&mdash; Max Stoiber (@mxstbr) <a href="https://twitter.com/mxstbr/status/1201186612203466752?ref_src=twsrc%5Etfw">December 1, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+> How to quickly create a talk from scratch 🔥
+>
+> 1. Write outline with markdown
+> 2. Install mdx-deck by [@jxnblk](https://twitter.com/jxnblk?ref_src=twsrc%5Etfw)(https://t.co/Ku6ITph9Tt">https://t.co/Ku6ITph9Tt)
+> 3. Add --- and <Notes /> in the right places to split outline into slides
+>
+> Done! It does not get faster than presenting your outline 💯
+>
+> --- Max Stoiber ([@mxstbr](https://twitter.com/mxstbr)) [December 1, 2019](https://twitter.com/mxstbr/status/1201186612203466752?ref_src=twsrc%5Etfw)
 
 ## First steps with mdx-deck and its obstacles
 

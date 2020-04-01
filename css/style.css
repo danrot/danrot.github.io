@@ -85,6 +85,17 @@ h2 {
     margin: 20px 0;
 }
 
+.content ul,
+.content ol {
+    margin-left: 20px;
+}
+
+.content blockquote {
+    border-left: 5px #999 solid;
+    color: #666;
+    padding-left: 10px;
+}
+
 .content .post-excerpt {
     margin: 0 0 30px 0;
     padding: 0 0 20px 0;
@@ -119,10 +130,6 @@ h2 {
 .content .post .highlighter-rouge {
     background-color: #f8f8f8;
     margin: 20px 0;
-}
-
-.content .post ul {
-    margin-left: 20px;
 }
 
 .content .post {
