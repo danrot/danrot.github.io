@@ -69,12 +69,15 @@ h2 {
     width: 40px;
 }
 
+.tags-icon {
+    width: 10px;
+    margin-right: 5px;
+}
+
 .content {
     margin-top: 30px;
     margin: 30px 20px 0 20px;
-
     font-size: 20px;
-
     line-height: 32px;
 }
 
@@ -85,7 +88,6 @@ h2 {
 .content .post-excerpt {
     margin: 0 0 30px 0;
     padding: 0 0 20px 0;
-
     border-bottom: 1px #ccc solid;
 }
 
@@ -93,9 +95,25 @@ h2 {
     text-decoration: none;
 }
 
+.content .post .tags,
+.content .post-excerpt .tags,
+.content .post .date,
+.content .post-excerpt .date {
+    color: #888;
+    font-size: 14px;
+}
+
+.content .post .tags {
+    margin: -25px 0 10px 0;
+}
+
+.content .post-excerpt .tags {
+    margin: -20px 0 10px 0;
+}
+
 .content .post-excerpt .date,
 .content .post .date {
-    margin: -10px 0 10px 0;
+    margin: -25px 0 10px 0;
 }
 
 .content .post .highlighter-rouge {
