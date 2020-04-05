@@ -31,7 +31,7 @@ importance of this language to this company.
 
 Then I stumbled upon this tweet of [Max Stoiber](https://twitter.com/mxstbr), which sounded interesting. A NPM package
 that allows to write slides in markdown and afterwards serve them via a webserver using
-[Gatsby](https://www.gatsbyjs.org/) under the hood. 
+[Gatsby](https://www.gatsbyjs.org/) under the hood.
 
 > How to quickly create a talk from scratch 🔥
 >
@@ -161,7 +161,7 @@ document.addEventListener('keydown', function(event) {
 ```
 
 So by just using three different files (
-[slides.md](https://github.com/danrot/presentation-template/blob/b44930c/slides.md), 
+[slides.md](https://github.com/danrot/presentation-template/blob/b44930c/slides.md),
 [slides.css](https://github.com/danrot/presentation-template/blob/b44930c/slides.css) and
 [slides_before_body.html](https://github.com/danrot/presentation-template/blob/b44930c/slides_before_body.html)) and
 the `pandoc` command we already have a pretty nice HTML presentation, which --- unless for the HTML markup at which
@@ -176,6 +176,7 @@ file by using the [`dot` language of graphviz](https://www.graphviz.org/). You c
 markdown of diagrams, using an easy-to-write and easy-to-read syntax to describe diagrams. Since it is so easy-to-read,
 it felt like the perfect candidate for being embedded in markdown. I imagined that somehow like this:
 
+<!-- markdownlint-disable code-fence-style -->
 ~~~markdown
 ## My slide using a SVG diagram
 
@@ -188,6 +189,7 @@ digraph G {
 }
 ```
 ~~~
+<!-- markdownlint-enable code-fence-style -->
 
 And after asking on [StackOverflow](https://stackoverflow.com/questions/60854853/integrate-graphviz-into-pandoc) if
 this was possible, I was redirected to the
