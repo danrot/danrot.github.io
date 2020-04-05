@@ -5,6 +5,14 @@ description: A blog about web development in general and about PHP, JavaScript, 
 author:
     twitter: danrot90
 
+social:
+    name: Daniel Rotter
+    links:
+        - https://twitter.com/danrot90
+        - https://www.linkedin.com/in/daniel-rotter-ba634859/
+        - https://github.com/danrot
+        - https://stackoverflow.com/users/1292378/daniel-rotter
+
 twitter:
     username: danrot90
     card: summary
