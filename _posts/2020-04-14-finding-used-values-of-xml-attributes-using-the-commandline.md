@@ -7,6 +7,7 @@ tags:
     - cli
     - xml
     - regex
+    - linux
 ---
 
 A few weeks ago I was working on a
