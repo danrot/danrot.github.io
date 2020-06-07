@@ -10,6 +10,10 @@ body {
     max-width: 800px;
 }
 
+img {
+    max-width: 100%;
+}
+
 a {
     color: #000;
     text-decoration: underline;
