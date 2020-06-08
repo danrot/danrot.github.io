@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Typing in JavaScript - Flow vs. TypeScript
-excerpt: There were two choices for static type checking in JavaScript - Flow and TypeScript. TypeScript is much more popular nowadays, but lets compare them anyway.
+excerpt: There were two choices for static type checking in JavaScript - Flow and TypeScript. TypeScript is much more popular nowadays, but let's compare them anyway.
 tags:
     - javascript
     - flow
@@ -10,7 +10,7 @@ tags:
 ---
 
 At [Sulu](https://sulu.io/) we have decided to use [Flow](https://flow.org/) for static type checking, and I am still
-confinced that it was the correct decision back then. However, today [TypeScript](https://www.typescriptlang.org/)
+convinced that it was the correct decision back then. However, today [TypeScript](https://www.typescriptlang.org/)
 seems to be the [much more popular choice](https://www.npmtrends.com/flow-bin-vs-typescript). This claim can also be
 supported by earlier [blog posts](https://mariusschulz.com/blog/typescript-vs-flow) and
 [presentations](https://djcordhose.github.io/flow-vs-typescript/2016_hhjs.html#/) being more about what to choose,
@@ -30,8 +30,8 @@ This code is syntactically correct, so JavaScript will not complain about this, 
 Since it is pretty obvious that you cannot divide a number by a string, you might say you are not doing that anyway,
 but imagine that the value of `"5"` is stored in a variable, and the value of that variable is not completely clear,
 because it is determined in a 100 lines of code. In that case it would be quite easy to mess this up in some way,
-without immediately realizing it. A static type checker would tell you about the error at the moment you introduce it,
-and you are much more likely to know what's wrong than when finding out about this error at runtime a year later.
+without immediately realizing it. **A static type checker would tell you about the error at the moment you introduce
+it**, and you are much more likely to know what's wrong than when finding out about this error at runtime a year later.
 
 Now there are different ways on how to apply static type checking. Many **compiled languages do this during their
 compilation step**, which means that the program does not compile at all if you get any type errors in your project.
@@ -76,7 +76,8 @@ reason TypeScript needs a compiler: Features like this require the code to be tr
 cannot only be simply removed. However, after also playing a bit with TypeScript I have to say that these features are
 optional and in practice it is not as cumbersome as I would have thought. Also, Flow isn't standard JavaScript either,
 although it might be (negligible) closer to it. But it would be easier to turn away from Flow, because "compiling" is
-simply removing the type annotations, so the code would even keep its readability.
+simply removing the type annotations, so the code would even keep its readability and the compiled version could be
+used instead of the annotated one.
 
 More importantly, **TypeScript had its own ecosystem**. E.g. there was no way to integrate TypeScript with
 [ESLint](https://eslint.org/), but they had their own tool named [TSLint](https://palantir.github.io/tslint/). Babel
@@ -90,8 +91,8 @@ into ESLint. This is awesome, because it allows to use the entire ESLint ecosyst
 one of my favourite ESLint plugins: [`eslint-plugin-jsx-a11y`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y).
 [Babel can now also be used for TypeScript](https://iamturns.com/typescript-babel/), although this way of using
 TypeScript is not feature complete. But still, you are able to easily use e.g.
-[CSS modules](https://github.com/css-modules/css-modules) now in combination with TypeScript and allows for an easier
-integration of React.
+[CSS modules](https://github.com/css-modules/css-modules) now in combination with TypeScript and it allows for an
+easier integration of React.
 
 ## Comparing caught errors and error messages
 
@@ -116,11 +117,11 @@ Checkout the TypeScript error message in comparison:
 ![Object is possibly 'null'.](/images/posts/typescript-null-to-string.png)
 
 Flow provides more helpful information to locate the actual error. I think TypeScript error might be misleading,
-because the object is not "possibly null", but in my example it is definitely null. That might be a little bit
-nitpicky, but that might still lead you on a wrong path. While this point might be controversial, Flow is better at
-giving more context. It does not only show where the error would happen (the `toString` method call); in addition it
-also show what assignment is responsible for that erro (`let value = null;`). Again, this might be not that important
-in such a small example, but will definitely help bigger code pieces.
+because the object is not "possibly null", but in my example it is definitely null. This might be a little bit
+nitpicky, but that might still lead you towards a wrong path. While this point might be controversial, Flow is
+definitely better at giving more context. It does not only show where the error would happen (the `toString` method
+call); in addition it also show what assignment is responsible for that error (`let value = null;`). Again, this might
+be not that important in such a small example, but will definitely help with bigger code pieces.
 
 This is also true for functions built directly into the browser. Let's have a look at how TypeScript handles the
 `document.write` method using the following example:
@@ -134,10 +135,10 @@ TypeScript shows the following error:
 ![Argument of type '30' is not assignable to parameter of type 'string'.](/images/posts/typescript-document-write.png)
 
 I was preparing this simple example for a course I was giving at the time, and it might sound stupid, but I really
-tripped over this error message. The problem here was that I was not aware that it seems that the `document.write` was
-typed to only accept strings in TypeScript, which I think is a little bit confusing, because numbers are also outputted
-just the way you would expect it. To be fair, **Flow has typed this function exactly the same way, but just because it
-gives more context in the error message it is easier to spot the error:**
+tripped over this error message. I was not aware that the `document.write` was typed to only accept strings in
+TypeScript, which I think is a little bit confusing, because numbers are also outputted just the way you would expect
+it. To be fair, **Flow has typed this function exactly the same way, but just because it gives more context in the
+error message it is easier to spot the error:**
 
 ![Cannot call document.write because number is incompatible with string in array element.](/images/posts/flow-document-write.png)
 
@@ -155,8 +156,8 @@ correctly.
 
 Both Flow and TypeScript have mechanisms to add library definition files, but I don't want to dig too deep into this,
 because what is important to me, is that I don't have to write these library definitions for every package I use
-manually. Adding types to your library that can be used in project depending on these libraries is not a big problem in
-both type checkers, but it is very unrealistic to think that this will happen for every project. So for most NPM
+manually. Adding types to your library that can be used in projects depending on these libraries is not a big problem
+in both type checkers, but it is very unrealistic to think that this will happen for every library. So for most NPM
 packages types have to be provided in a different way. And this is where TypeScript excels compared to Flow.
 
 For Flow there is the [`flow-typed` project](https://github.com/flow-typed/flow-typed), which is a central repository
@@ -167,24 +168,24 @@ CLI tool, which copies the type definitions from their central repository into a
 which you have to commit to your version control system.
 
 This feels very cumbersome, especially since there would already be a central repository called NPM. I never really got
-why the types were simply not created as simple NPM packages, which could then be installed and used, without having to
-commit anything to my own repository. And **installing 3rd party types as separate packages is exactly what TypeScript
-is doing**. This is also the reason I think TypeScript is a lot better in that regard.
+why the types were not created as simple NPM packages, which could then be installed and used, without having to commit
+anything to my own repository. And **installing 3rd party types as separate packages is exactly what TypeScript is
+doing**. This is also the reason I think TypeScript is a lot better in that regard.
 
 ## Conclusion
 
-I am still not very sure, which of both type systems I should prefer. TypeScript has mad a lot of improvements,
+I am still not very sure, which of both type systems I should prefer. TypeScript has made a lot of improvements,
 especially regarding the majority of reasons we decided against TypeScript a few years ago. However, **Flow seems still
 to be more strict and has better error messages, two very important aspect of a type system**. On the other handside
 **TypeScript is more popular, has a bigger community, and handles 3rd party types a lot better**. Flow's advantage of
-being more strict is somehow lost, when using a lot of 3rd party packages, for which no Flow types exists, and Flow
-considers the entire 3rd party code untyped then.
+being more strict is somehow lost, when using a lot of 3rd party packages. That is becuase if no Flow types exists,
+Flow considers the entire 3rd party code untyped.
 
 Until recently I would have said TypeScript is the clear winner, but then I saw that
-**[Flow is still being worked on](https://github.com/facebook/flow/commits/master)**. But they still introduce breaking
-changes quite often, which makes updating it a tedious job (although most of the changes make sense from my point of
-view). TypeScript is still the more active project, and has better integrations in all kind of other tooling. For these
-reasons I would say it is much more likely that Flow reaches its end of life than TypeScript.
+**[Flow is still being worked on](https://github.com/facebook/flow/commits/master)**. But they continue to introduce
+breaking changes quite often, which makes updating it a tedious job (although most of the changes make sense from my
+point of view). TypeScript is still the more active project, and has better integrations in all kind of other tooling.
+For these reasons I would say it is much more likely that Flow reaches its end of life than TypeScript.
 
 So in conclusion, my current recommendation would be:
 
