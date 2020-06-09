@@ -178,7 +178,7 @@ I am still not very sure, which of both type systems I should prefer. TypeScript
 especially regarding the majority of reasons we decided against TypeScript a few years ago. However, **Flow seems still
 to be more strict and has better error messages, two very important aspect of a type system**. On the other handside
 **TypeScript is more popular, has a bigger community, and handles 3rd party types a lot better**. Flow's advantage of
-being more strict is somehow lost, when using a lot of 3rd party packages. That is becuase if no Flow types exists,
+being more strict is somehow lost, when using a lot of 3rd party packages. That is because if no Flow types exists,
 Flow considers the entire 3rd party code untyped.
 
 Until recently I would have said TypeScript is the clear winner, but then I saw that
