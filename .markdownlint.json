@@ -29,7 +29,7 @@
     "fenced-code-language": true,
     "no-empty-links": true,
     "proper-names": {
-        "names": ["Flow", "flow-typed", "JavaScript", "PHP", "TypeScript", "typescript-eslint", "D3.js"]
+        "names": ["Flow", "flow-typed", "JavaScript", "TypeScript", "typescript-eslint", "D3.js"]
     },
     "no-alt-text": true,
     "code-block-style": {"style": "fenced"},
