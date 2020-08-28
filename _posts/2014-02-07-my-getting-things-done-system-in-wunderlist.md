@@ -2,11 +2,16 @@
 layout: post
 title: My Getting Things Done system in Wunderlist
 excerpt: Building your own "Getting Things Done" system using a few simple tips, including some that will hopefully boost your productivity.
+last_modified_at: 2020-08-28
 
 tags:
     - productivity
     - wunderlist
 ---
+
+***UPDATE 28 Aug 2020**: I have switched to [Todoist](https://todoist.com/) now. They also have a
+[great guide on using it for Getting Things Done](https://todoist.com/productivity-methods/getting-things-done).*
+
 I have been reading the official Getting Things Done book by David Allen, and now I want to summarize the most important
 lessons I have learnt. These tips work best when used in [Wunderlist](http://www.wunderlist.com), which is my favourite
 todo app.
