@@ -2,6 +2,8 @@
 layout: post
 title: "Applying design patterns: The builder and factory pattern in a DI context"
 excerpt: Creating objects is a very basic task. Although this seems like a simple problem, it can be improved by using patterns like builder and factory.
+last_modified_at: 2020-09-10
+
 tags:
     - php
     - oop
@@ -155,6 +157,9 @@ In the above example the `Route` class is instantiated right away and the other 
 object to the getter method of the `Builder` if necessary, allowing you to define an constructor making sure that the
 object is valid starting from the very beginning while making the creation of such an object comfortable for the
 developer.
+
+*Mind that in our case the `Router` constructor can still be called directly, which might lead to invalid routes. We
+have accepted that tradeoff to have a single `Route` object and avoid creating a deep inheritance hierarchy.*
 
 Another advantage is that the `Builder` object can also be passed as argument to other functions taking part in the
 object creation process. Let's say in your application you have some configuration you want to add to a few `Datagrid`
