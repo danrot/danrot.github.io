@@ -26,6 +26,8 @@ don't have to execute all the tests all the time, which will result in much less
 only the necessary tests run and finish much sooner, which will result in a much better developer experience.
 Additionally, **Jest will watch all your files, and rerun your tests as soon as a file within your codebase changes.**
 
+## A watch mode for PHPUnit
+
 Actually I was so fascinated by this feature, that I wanted to have something similar for
 [PHPUnit](https://phpunit.de/), my PHP testing framework of choice. Unfortunately I did not find any built-in solution,
 but I found **another interesting generic-purpose tool called [entr](http://eradman.com/entrproject/)**. Based on this
@@ -65,13 +67,18 @@ understand it better) your command would look like this:
 ack "new Media()" -l | entr phpunit
 ```
 
+*The `-l` flag of the `ack` command will only list the files containing this content, not the content itself. It is
+necessary, because otherwise `entr` get more than just a list of entries, and it wouldn't be able to handle that.*
+
 Of course you can also combine this new knowledge with any of your previous knowledge of your shell. But keep in mind
 that this is still not as powerful as Jest's watch feature. That is because Jest can analyze the JavaScript code, and
 will even be able to tell which files are importing a changed file, and include that information when finding the tests
 that are affected by this change.
 
-But since we have found now a more generic solution to this problem (which comes with the just mentioned downsides)
-**we are able to also reuse that command in other situations**. Something that I found very helpful is to automatically
+## Reuse that watch mode with other commands
+
+Since we have found now a more generic solution to this problem (which comes with the just mentioned downsides) **we
+are able to also reuse that command in other situations**. Something that I found very helpful is to automatically
 create new HTML output when I am building one of my
 [markdown presentations](/2020/03/28/creating-highly-customizable-html-presentation-with-markdown-and-pandoc.html). All
 I have to do to make this work is to write a command like this, which will then run and create a new HTML output
@@ -82,9 +89,10 @@ ls slides.md | entr make html
 ```
 
 So while this approach is not as powerful as having a watch mode fully integrated in some other tools, I still like to
-have it in my toolbelt, since I can apply it to many different situations in which a watch mode might not be available.
+have it in my toolbelt, **since I can apply it to many different situations in which a watch mode might not be
+available**.
 
-If I've got you curious and you want to play with `entr`, you can easily install it in Archlinux using `pacman`:
+If you are curious now and you want to play with `entr`, you can easily install it in ArchLinux using `pacman`:
 
 ```bash
 pacman -S entr
