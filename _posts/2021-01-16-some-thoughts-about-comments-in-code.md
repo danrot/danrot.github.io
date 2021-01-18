@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Some thought about comments in code
+title: Some thoughts about comments in code
 excerpt: Comments in code are quite often a code smell. Let's see what is suboptimal about comments and talk about some strategies to avoid them.
 
 tags:
