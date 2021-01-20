@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Some thoughts about comments in code
+title: Code comments are (mostly) a violation of DRY
 excerpt: Comments in code are quite often a code smell. Let's see what is suboptimal about comments and talk about some strategies to avoid them.
 
 tags:
@@ -8,6 +8,9 @@ tags:
     - programming
     - documentation
     - dry
+
+redirect_from:
+    - /2021/01/16/some-thoughts-about-comments-in-code.html
 ---
 
 ["Don't repeat yourself"](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) is such an important and widely taught
