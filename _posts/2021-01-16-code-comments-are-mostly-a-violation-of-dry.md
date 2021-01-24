@@ -5,6 +5,7 @@ excerpt: Comments in code are quite often a code smell. Let's see what is subopt
 
 tags:
     - php
+    - javascript
     - programming
     - documentation
     - dry
