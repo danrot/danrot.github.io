@@ -2,6 +2,7 @@
 layout: post
 title: Creating highly customizable HTML presentations with markdown and pandoc
 excerpt: Presentations can be created using markdown, a plain file format. There are some available options, but let's see why it pays off to build your own solution.
+last_modified_at: 2021-02-28
 
 tags:
     - presentations
@@ -10,7 +11,14 @@ tags:
     - pandoc
     - graphviz
 ---
-*Warning: This is a rather long blog post explaining also some details. If you are just interested in the end result
+***Update 2021-02-28**: Instead of just having the template I have extracted a
+[`markdown-presentation` package](https://github.com/danrot/markdown-presentation), which is used by the accordingly
+updated [`presentation-template`](https://github.com/danrot/presentation-template). This allows to adjust styling
+just once and have it in all my presentations, after updating the package using git submodules. I also got rid of the
+graphviz integration and adjusted the `Makefile`, so that dot is only used if the files changed since the last
+generation, which allowed to shorten the build time by a lot if diagrams have already been generated.*
+
+***Warning**: This is a rather long blog post explaining also some details. If you are just interested in the end result
 you might want to jump the the [conclusion](#conclusion) right away*
 
 I love [markdown](https://daringfireball.net/projects/markdown/). It's super easy to write, and also very easy to read,
