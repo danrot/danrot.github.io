@@ -16,7 +16,9 @@ tags:
 updated [`presentation-template`](https://github.com/danrot/presentation-template). This allows to adjust styling
 just once and have it in all my presentations, after updating the package using git submodules. I also got rid of the
 graphviz integration and adjusted the `Makefile`, so that dot is only used if the files changed since the last
-generation, which allowed to shorten the build time by a lot if diagrams have already been generated.*
+generation, which allowed to shorten the build time by a lot if diagrams have already been generated. Read more about
+[this extraction and the improved build step in another
+blog](/2021/03/06/use-git-submodules-and-make-for-simple-code-sharing.html).*
 
 ***Warning**: This is a rather long blog post explaining also some details. If you are just interested in the end result
 you might want to jump the the [conclusion](#conclusion) right away*
