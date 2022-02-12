@@ -2,6 +2,7 @@
 layout: post
 title: Some reasons for disliking react hooks
 excerpt: React has introduced hooks to replace classes. Some people are huge fans, while I am a bit more skeptical. An explanation.
+last_modified_at: 2022-02-12
 tags:
     - javascript
     - react
@@ -176,7 +177,7 @@ function App() {
         }, 60000);
 
         return () => clearInterval(interval);
-    });
+    }, []);
 
     return (
         <p>{minutes}m and {seconds}s ellapsed!</p>
