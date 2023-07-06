@@ -32,11 +32,11 @@ available type options were. The old filter implementation used to be defined so
 The interesting part here for me was the `filter-type` attribute on the `property` node. To get an overview I wanted to
 get a list of all values, that have been used for this attribute.
 
-Since I am using [neovim](https://neovim.io/) as an editor, I could not use any fancy IDE functionality for that. And
+Since I am using [Neovim](https://neovim.io/) as an editor, I could not use any fancy IDE functionality for that. And
 to be totally honest, even back when I used PHPStorm, I only used "Search in path" with plain string values. I might be
 wrong, but I guess most people don't use a lot of the stuff PHPStorm offers, which is also the reason I stopped using
 it. It almost feels like bloatware with a lot of stuff I never needed, and it is much slower than using e.g.
-[neovim](https://neovim.io/), which allows me to free resources for my important tasks. Apart from that I am not even
+[Neovim](https://neovim.io/), which allows me to free resources for my important tasks. Apart from that I am not even
 sure PHPStorm would have been able to help me with the task at hand.
 
 However, I didn't have to check, because I didn't want to use it anyway. So I decided to level up my CLI skills a bit.
