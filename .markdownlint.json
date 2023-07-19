@@ -29,7 +29,20 @@
     "fenced-code-language": true,
     "no-empty-links": true,
     "proper-names": {
-        "names": ["Flow", "flow-typed", "JavaScript", "Neovim", "TypeScript", "typescript-eslint", "D3.js"]
+        "names": [
+			"curl",
+			"Firefox",
+			"Flow",
+			"flow-typed",
+			"HTTPie",
+			"JavaScript",
+			"jq",
+			"Kubernetes",
+			"Neovim",
+			"TypeScript",
+			"typescript-eslint",
+			"D3.js"
+		]
     },
     "no-alt-text": true,
     "code-block-style": {"style": "fenced"},
