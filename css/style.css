@@ -135,6 +135,7 @@ h2 {
 .content .post .highlighter-rouge {
     background-color: #f8f8f8;
     margin: 20px 0;
+    overflow: auto;
 }
 
 .content .post {
