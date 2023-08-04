@@ -110,11 +110,11 @@ it is called with the `--strictNullChecks` parameter on the command line (still 
 But even if that option is activated to make TypeScript recognize that change, I like the error message provided by
 Flow better:
 
-![Cannot call value.toString because property toString is missing in null.](/images/posts/flow-null-to-string.png)
+![Cannot call value.toString because property toString is missing in null.](/images/posts/flow-null-to-string.webp)
 
 Checkout the TypeScript error message in comparison:
 
-![Object is possibly 'null'.](/images/posts/typescript-null-to-string.png)
+![Object is possibly 'null'.](/images/posts/typescript-null-to-string.webp)
 
 Flow provides more helpful information to locate the actual error. I think TypeScript error might be misleading,
 because the object is not "possibly null", but in my example it is definitely null. This might be a little bit
@@ -132,7 +132,7 @@ document.write(30, 10);
 
 TypeScript shows the following error:
 
-![Argument of type '30' is not assignable to parameter of type 'string'.](/images/posts/typescript-document-write.png)
+![Argument of type '30' is not assignable to parameter of type 'string'.](/images/posts/typescript-document-write.webp)
 
 I was preparing this simple example for a course I was giving at the time, and it might sound stupid, but I really
 tripped over this error message. I was not aware that the `document.write` was typed to only accept strings in
@@ -140,7 +140,7 @@ TypeScript, which I think is a little bit confusing, because numbers are also ou
 it. To be fair, **Flow has typed this function exactly the same way, but just because it gives more context in the
 error message it is easier to spot the error:**
 
-![Cannot call document.write because number is incompatible with string in array element.](/images/posts/flow-document-write.png)
+![Cannot call document.write because number is incompatible with string in array element.](/images/posts/flow-document-write.webp)
 
 In its error message Flow shows that the `document.write` method has been defined to be called with strings only, which
 makes the error a lot more obvious. **And this advantage gets even more important, if the codebase you are working on
