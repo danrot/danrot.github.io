@@ -28,7 +28,7 @@ better integrated in other software, e.g. **most browsers have an option in thei
 requests as curl commands, which includes all headers, cookies, etc. that were included in that request, which makes
 seven testing an API that needs authentication**.
 
-![The "Copy as curl" option in the Firefox developer tools](/images/posts/firefox-copy-as-curl.png)
+![The "Copy as curl" option in the Firefox developer tools](/images/posts/firefox-copy-as-curl.webp)
 
 I do not know of any browser offering a similar option for HTTPie, and that alone is enough reason for me to stick with
 curl.
@@ -42,7 +42,7 @@ results in syntax-highlighted and properly formatted text that is easy to read. 
 in the following screenshot uses a simple file for demonstration purposes, but it does not matter where the command
 before the pipe gets the content from, as long as it outputs it.
 
-![`jq` highlighting JSON results in a much easier to read text](/images/posts/jq-highlighted-json.png)
+![`jq` highlighting JSON results in a much easier to read text](/images/posts/jq-highlighted-json.webp)
 
 `jq` would even allow filtering e.g. by the level of the log message using its [`select`
 function](https://jqlang.github.io/jq/manual/#select(boolean_expression)), and there are many other possibilities.

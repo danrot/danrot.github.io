@@ -23,8 +23,8 @@ Of course I chose the latter!
 First of all I had to find a glob that matches all the files I want to execute the command (`unzip` in my case) for. The
 `ls` command is great for testing this:
 
-```bash
-$ ls */*.zip
+```plaintext
+ls */*.zip
 ```
 
 `ls` is usually used to list the content of entire directories, but also allows to list files being passed to it. This
@@ -41,8 +41,8 @@ Next step: Figure out how to use the [`for` loop in `fish`](https://fishshell.co
 prefered to play it safe, so I decided to only output the names of the files using the `echo` command within the `for`
 loop.
 
-```bash
-$ for file in */*.zip;
+```plaintext
+for file in */*.zip;
     echo $file;
 end
 ```
@@ -55,8 +55,8 @@ Other than some differences in whitespaces the output should be pretty much the 
 So I knew that the `for` loop was receiving the correct values and I could start writing the actual command I want to
 execute for all of these files. I've ended up with the following:
 
-```bash
-$ for file in */*.zip;
+```plaintext
+for file in */*.zip;
     unzip $file -d (dirname $file);
 end
 ```
@@ -81,8 +81,8 @@ been added as root in the archives.
 In addition to that I also make use of the fact that multiple commands can be used within a `for` loop if they are
 delimited by a `;`.
 
-```bash
-$ for file in **/package.json;
+```plaintext
+for file in **/package.json;
     cd (dirname $file);
     npm install;
     cd -;

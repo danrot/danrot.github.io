@@ -1,26 +1,21 @@
 ---
 layout: master
 ---
-<article class="post">
-    <h1>{{ page.title }}</h1>
-    <div class="tags">
-        <img alt="tags" src="/images/tags.svg" class="tags-icon" width="10" height="8" />
-        {{ page.tags | join: ", " }}
-    </div>
-    <div class="date">
-        <img alt="time" src="/images/clock.svg" class="tags-icon" width="10" height="8" />
-        {{ page.date | date_to_string }}
-    </div>
-    <div class="body">
-        {{ content }}
-    </div>
+<article>
+	<header>
+		<h1>{{ page.title }}</h1>
+		<div>{{ page.tags | join: ", " }}</div>
+		<div>{{ page.date | date_to_string }}</div>
+	</header>
+
+	{{ content }}
+
+	<footer>
+		<div>
+			Any thoughts? Contact me on <a href="https://www.linkedin.com/in/rotter-daniel/">LinkedIn</a> or
+			<a href="https://mastodon.social/@danrot">Mastodon</a> and share them with me!
+		</div>
+
+		<div><a href="https://github.com/danrot/danrot.github.io/edit/master/{{ page.path }}">Edit on GitHub</a></div>
+	</footer>
 </article>
-
-
-<footer class="interactions">
-	Any thoughts? Contact me on <a href="https://www.linkedin.com/in/rotter-daniel/">LinkedIn</a> or
-	<a href="https://mastodon.social/@danrot">Mastodon</a> and share them with me!
-    <ul>
-        <li><a href="https://github.com/danrot/danrot.github.io/edit/master/{{ page.path }}">Edit on GitHub</a></li>
-    </ul>
-</footer>

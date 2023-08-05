@@ -46,7 +46,7 @@ that allows to write slides in markdown and afterwards serve them via a webserve
 > How to quickly create a talk from scratch 🔥
 >
 > 1. Write outline with markdown
-> 2. Install mdx-deck by [@jxnblk](https://twitter.com/jxnblk?ref_src=twsrc%5Etfw)(https://t.co/Ku6ITph9Tt">https://t.co/Ku6ITph9Tt)
+> 2. Install mdx-deck by [@jxnblk](https://twitter.com/jxnblk?ref_src=twsrc%5Etfw)
 > 3. Add --- and <Notes /> in the right places to split outline into slides
 >
 > Done! It does not get faster than presenting your outline 💯

@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <script async data-no-cookie src="https://cdn.splitbee.io/sb.js"></script>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<head>
+		<script async data-no-cookie src="https://cdn.splitbee.io/sb.js"></script>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" type="text/css" href="/css/style.css" />
-        <link rel="stylesheet" type="text/css" href="/css/github.css" />
-        <link rel="alternate" type="application/atom+xml" href="/feed.xml" />
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<link rel="alternate" type="application/atom+xml" href="/feed.xml">
 
-        {% seo %}
-    </head>
-    <body>
-        <header class="header">
-            <a href="/" class="title">Daniel Rotter</a>
-            <a href="/" class="subtitle">Web Developer</a>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/rotter-daniel/" class="social-link">
-                    <img alt="LinkedIn" src="/images/linkedin.svg" width="26" height="26" />
-                </a>
-                <a href="https://mastodon.social/@danrot" class="social-link" rel="me">
-                    <img alt="LinkedIn" src="/images/mastodon.svg" width="26" height="26" />
-                </a>
-                <a href="https://www.github.com/danrot" class="social-link github-link">
-                    <img alt="GitHub" src="/images/github.svg" width="26" height="26" />
-                </a>
-                <a href="/feed.xml" class="social-link feed-link">
-                    <img alt="Feed" src="/images/feed.svg" width="26" height="26" />
-                </a>
-                <a href="https://www.twitter.com/danrot90" class="social-link twitter-link">
-                    <img alt="Twitter" src="/images/twitter.svg" width="40" height="40" />
-                </a>
-            </div>
-        </header>
-        <main class="content">
-            {{ content }}
-        </main>
-    </body>
+		{% seo %}
+	</head>
+	<body>
+		<header>
+			<address>
+				<a href="/" rel="author">Daniel Rotter</a>
+				<div>Full Stack Web Developer</div>
+
+				<a href="https://www.linkedin.com/in/rotter-daniel/">
+					<img alt="LinkedIn" src="/images/linkedin.svg">
+				</a>
+				<a href="https://mastodon.social/@danrot" rel="me">
+					<img alt="Mastodon" src="/images/mastodon.svg">
+				</a>
+				<a href="https://www.github.com/danrot">
+					<img alt="GitHub" src="/images/github.svg">
+				</a>
+				<a href="/feed.xml">
+					<img alt="Feed" src="/images/feed.svg">
+				</a>
+				<a href="https://www.twitter.com/danrot90">
+					<img alt="Twitter" src="/images/twitter.svg">
+				</a>
+			</address>
+			<p>
+				Currently working at <a href="https://www.yummy.digital">Yummy Publishing</a>
+				(previously at <a href="https://www.valantic.com">valantic</a>, <a href="https://sulu.io">Sulu</a> and
+				<a href="https://www.massiveart.com">MASSIVE ART</a>)<br>
+				and lecturing at the <a href="https://www.fhv.at/">Vorarlberg University of Applied Sciences</a>
+			</p>
+		</header>
+		<main>
+			{{ content }}
+		</main>
+	</body>
 </html>
