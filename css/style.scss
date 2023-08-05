@@ -1,0 +1,100 @@
+---
+---
+
+body > header {
+	address {
+		a[rel="author"] {
+			color: inherit;
+			font-size: 2em;
+			font-style: normal;
+			font-weight: bold;
+			text-decoration: none;
+			vertical-align: middle;
+		}
+
+		a[rel="author"] + div {
+			font-size: 1.5em;
+			margin-bottom: 0.5em;
+		}
+
+		a:not([rel="author"]) {
+			display: inline-block;
+			height: 2em;
+			text-decoration: none;
+			vertical-align: middle;
+
+			img {
+				height: 2em;
+				width: 2em;
+			}
+		}
+	}
+
+	address + p {
+		margin: 0.5em 0;
+	}
+}
+
+article {
+	margin-top: 3em;
+
+	header {
+		h1 {
+			font-size: 2.5em;
+			margin: 0;
+		}
+	}
+
+	h2 {
+		font-size: 2em;
+	}
+
+	h3 {
+		font-size: 1.5em;
+	}
+
+	p, ul, ol {
+		max-width: 50em;
+	}
+
+	img {
+		max-width: 100%;
+	}
+
+	footer {
+		font-style: italic;
+		margin-top: 3em;
+	}
+}
+
+.highlighter-rouge {
+	overflow: scroll;
+
+	.c1, .cd {
+		color: #666666;
+	}
+
+	.k, .kc, .kd, .kn {
+		color: #b85200;
+	}
+
+	.n, .nb, .nf, .nx, .sx {
+		color: #075eb0;
+	}
+
+	.na, .nt, .cp {
+		color: #946c16;
+	}
+
+	.nc, .nv, .nl {
+		color: #a81990;
+	}
+
+	.m, .s, .s1, .s2 {
+		color: #398243;
+	}
+
+	.mi {
+		color: #0e807e;
+	}
+}

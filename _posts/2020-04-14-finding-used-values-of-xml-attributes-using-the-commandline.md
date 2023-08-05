@@ -50,7 +50,7 @@ the same within each of Sulu's [Bundles](https://symfony.com/doc/current/bundles
 [Symfony Framework](https://symfony.com/)). Therefore I was able to use the `find` command to list all of these files:
 
 ```bash
-$ find src/Sulu/Bundle/*/Resources/config/lists/ -name "*.xml"
+find src/Sulu/Bundle/*/Resources/config/lists/ -name "*.xml"
 ```
 
 The first parameter of the `find` command lists all the folders that should be searched. The asterisk in there is a
@@ -70,7 +70,7 @@ So to summarize the above paragraph in an example, this is what you would have t
 output every file with a `File:` prefix:
 
 ```bash
-$ find src/Sulu/Bundle/*/Resources/config/lists/\
+find src/Sulu/Bundle/*/Resources/config/lists/\
     -name "*.xml"\
     -exec echo "File: {}" \;
 ```
@@ -85,7 +85,7 @@ try to find all lines in the `contacts.xml` file containing a `filter-type` attr
 something like this:
 
 ```bash
-$ grep 'filter-type="[^"]*"' contacts.xml
+grep 'filter-type="[^"]*"' contacts.xml
 ```
 
 The `grep` command takes a regular expression as the first argument. In this regular expression we are looking for the
@@ -99,7 +99,7 @@ result in an easy manner. Thankfully there is the `-o` option, which does exactl
 actually matched and avoid printing the rest of the line:
 
 ```bash
-$ grep -o 'filter-type="[^"]*"' contacts.xml
+grep -o 'filter-type="[^"]*"' contacts.xml
 ```
 
 That returns all occurences of the regex, without the rest of the line, but only for a single file. So let's combine
