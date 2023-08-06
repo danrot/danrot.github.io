@@ -2,7 +2,7 @@
 layout: post
 title: Use external programs like git in Neovim commands
 excerpt: Neovim comes with a very powerful command system, which can even be combined with existing shell commands!
-
+last_modified_at: 2023-08-06
 tags:
     - neovim
     - vim
@@ -69,7 +69,21 @@ operating system:
 ```
 
 `read` is a Neovim command, that can be used to insert text at the current cursor position. And this `read` command can
-also be used in combination with any operating system command like `date`.
+also be used in combination with any operating system command like `date`. The `read` command also comes in handy with
+other commands:
+
+```plaintext
+:read !uuidgen
+```
+
+The `uuidgen` command here is used to generate a new UUID and insert it into the currently opened file.
+
+```plaintext
+:read !pwd
+```
+
+This one is e.g. useful when writing configuration files, in which you want to set the value of some variable to the
+current working directory, since that is what is being returned from the `pwd` command.
 
 It is also not only possible to insert text, but also to manipulate existing text using such commands. Imagine you have
 a list of numbers in your editor, that you would like to sort. Instead of building some special functionality in Neovim,
