@@ -17,8 +17,8 @@ will add some thoughts about this redesign.
 
 While I think that already the previous version of my website was pretty minimal, I managed to reduce it even more. I
 removed the borders since I did not like them anymore. **In general, I minimized the CSS as much as possible**, so I
-ended up with exactly 100 lines of CSS, whereby this also includes some color definitions for the syntax highlighting in
-blog posts.
+ended up with exactly 152 lines of CSS, whereby this also includes color definitions for the syntax highlighting in blog
+posts and a dark mode implementation.
 
 I am well aware that this results in a very minimal look, without a lot to stick out, and that not every website can be
 built like this, especially the ones that are made for marketing. However, **I am not a designer, so I usually do not
@@ -31,8 +31,8 @@ There are also nice side effects:
   not anymore is that developers added some CSS that breaks responsiveness. Since there is not a lot of CSS, there is
   (probably) nothing that breaks responsiveness.
 - The performance is phenomenal since there is not a lot to load for the client.
-- Since I did not change the styling of `a` tags too much either, users will actually see which pages they have already
-  visited.
+- Since I did not change the styling of `a` tags too much either (except for some light color adjustments in the dark
+mode), users will actually see which pages they have already visited.
 
 ## No classes in HTML
 

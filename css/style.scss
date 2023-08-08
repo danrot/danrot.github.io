@@ -1,56 +1,108 @@
 ---
 ---
 
-body > header {
-	address {
-		a[rel="author"] {
-			color: inherit;
-			font-size: 2em;
-			font-style: normal;
-			font-weight: bold;
-			text-decoration: none;
-			vertical-align: middle;
-		}
+@media (prefers-color-scheme: light) {
+	:root {
+		--strong-background-color: #ffff80;
+		--syntax-color-1: #666;
+		--syntax-color-2: #b85200;
+		--syntax-color-3: #075eb0;
+		--syntax-color-4: #946c16;
+		--syntax-color-5: #a81990;
+		--syntax-color-6: #398243;
+		--syntax-color-7: #0e807e;
+	}
+}
 
-		a[rel="author"] + div {
-			font-size: 1.5em;
-			margin-bottom: 0.5em;
-		}
-
-		a:not([rel="author"]) {
-			display: inline-block;
-			height: 2em;
-			text-decoration: none;
-			vertical-align: middle;
-
-			img {
-				height: 2em;
-				width: 2em;
-			}
-		}
+@media (prefers-color-scheme: dark) {
+	:root {
+		--body-background-color: #222;
+		--body-color: #ddd;
+		--a-link-color: #9ed8fa;
+		--a-visited-color: #a557eb;
+		--strong-background-color: #573400;
+		--syntax-color-1: #aaa;
+		--syntax-color-2: #fc7405;
+		--syntax-color-3: #47a1f5;
+		--syntax-color-4: #cfa54a;
+		--syntax-color-5: #f086de;
+		--syntax-color-6: #5bba68;
+		--syntax-color-7: #27b8b5;
 	}
 
-	address + p {
-		margin: 0.5em 0;
+	img[src="/images/github.svg"] {
+		filter: invert(100%);
+	}
+}
+
+a:link {
+	color: var(--a-link-color, revert);
+}
+
+a:visited {
+	color: var(--a-visited-color, revert);
+}
+
+h1 {
+	font-size: 2.5em;
+}
+
+h2 {
+	font-size: 2em;
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+strong {
+	background-color: var(--strong-background-color);
+}
+
+body {
+	background-color: var(--body-background-color, revert);
+	color: var(--body-color, revert);
+
+	> header {
+		address {
+			a[rel="author"] {
+				color: inherit;
+				font-size: 2em;
+				font-style: normal;
+				font-weight: bold;
+				text-decoration: none;
+				vertical-align: middle;
+			}
+
+			a[rel="author"] + div {
+				font-size: 1.5em;
+				margin-bottom: 0.5em;
+			}
+
+			a:not([rel="author"]) {
+				display: inline-block;
+				height: 2em;
+				text-decoration: none;
+				vertical-align: middle;
+
+				img {
+					height: 2em;
+					width: 2em;
+				}
+			}
+		}
+
+		address + p {
+			margin: 0.5em 0;
+		}
 	}
 }
 
 article {
 	margin-top: 3em;
 
-	header {
-		h1 {
-			font-size: 2.5em;
-			margin: 0;
-		}
-	}
-
-	h2 {
-		font-size: 2em;
-	}
-
-	h3 {
-		font-size: 1.5em;
+	h1 {
+		margin: 0;
 	}
 
 	p, ul, ol {
@@ -71,30 +123,30 @@ article {
 	overflow: scroll;
 
 	.c, .c1, .cd {
-		color: #666666;
+		color: var(--syntax-color-1);
 	}
 
 	.k, .kc, .kd, .kn {
-		color: #b85200;
+		color: var(--syntax-color-2);
 	}
 
 	.n, .nb, .nf, .nx, .sx {
-		color: #075eb0;
+		color: var(--syntax-color-3);
 	}
 
 	.na, .nt, .cp {
-		color: #946c16;
+		color: var(--syntax-color-4);
 	}
 
 	.nc, .nv, .nl {
-		color: #a81990;
+		color: var(--syntax-color-5);
 	}
 
 	.m, .s, .s1, .s2 {
-		color: #398243;
+		color: var(--syntax-color-6);
 	}
 
 	.mi {
-		color: #0e807e;
+		color: var(--syntax-color-7);
 	}
 }
