@@ -71,7 +71,7 @@ article {
 	overflow: scroll;
 
 	.c, .c1, .cd {
-		color: #666666;
+		color: #666;
 	}
 
 	.k, .kc, .kd, .kn {
@@ -96,5 +96,56 @@ article {
 
 	.mi {
 		color: #0e807e;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: #222;
+		color: #ddd;
+	}
+
+	a {
+		color: #19a7ff;
+	}
+
+	a:visited {
+		color: #a557eb;
+	}
+
+	img[src="/images/github.svg"] {
+		filter: invert(100%);
+	}
+
+	.highlighter-rouge {
+		overflow: scroll;
+
+		.c1, .cd {
+			color: #aaa;
+		}
+
+		.k, .kc, .kd, .kn {
+			color: #fc7405;
+		}
+
+		.n, .nb, .nf, .nx, .sx {
+			color: #47a1f5;
+		}
+
+		.na, .nt, .cp {
+			color: #cfa54a;
+		}
+
+		.nc, .nv, .nl {
+			color: #f086de;
+		}
+
+		.m, .s, .s1, .s2 {
+			color: #5bba68;
+		}
+
+		.mi {
+			color: #27b8b5;
+		}
 	}
 }
