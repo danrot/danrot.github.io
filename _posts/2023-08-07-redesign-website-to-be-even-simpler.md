@@ -17,7 +17,7 @@ will add some thoughts about this redesign.
 
 While I think that already the previous version of my website was pretty minimal, I managed to reduce it even more. I
 removed the borders since I did not like them anymore. **In general, I minimized the CSS as much as possible**, so I
-ended up with exactly 151 lines of CSS, whereby this also includes color definitions for the syntax highlighting in blog
+ended up with exactly 152 lines of CSS, whereby this also includes color definitions for the syntax highlighting in blog
 posts and a dark mode implementation.
 
 I am well aware that this results in a very minimal look, without a lot to stick out, and that not every website can be
