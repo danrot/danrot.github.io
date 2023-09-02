@@ -1,6 +1,7 @@
 title: Daniel Rotter
 lang: en
 description: A blog about web development in general and about PHP, JavaScript, Linux and its command line in particular.
+future: true
 
 author:
     twitter: danrot90
