@@ -4,12 +4,13 @@
 @media (prefers-color-scheme: light) {
 	:root {
 		--strong-background-color: #ffff80;
+		--code-background-color: #eee;
 		--syntax-color-1: #666;
 		--syntax-color-2: #b85200;
 		--syntax-color-3: #075eb0;
-		--syntax-color-4: #946c16;
+		--syntax-color-4: #856011;
 		--syntax-color-5: #a81990;
-		--syntax-color-6: #398243;
+		--syntax-color-6: #2e6b36;
 		--syntax-color-7: #0e807e;
 	}
 }
@@ -21,6 +22,7 @@
 		--a-link-color: #9ed8fa;
 		--a-visited-color: #a557eb;
 		--strong-background-color: #573400;
+		--code-background-color: #333;
 		--syntax-color-1: #aaa;
 		--syntax-color-2: #fc7405;
 		--syntax-color-3: #47a1f5;
@@ -119,8 +121,21 @@ article {
 	}
 }
 
-.highlighter-rouge {
+code.highlighter-rouge {
+	background-color: var(--code-background-color);
+	border-radius: 2px;
+	padding: 2px;
+}
+
+div.highlighter-rouge {
 	overflow: scroll;
+	background-color: var(--code-background-color);
+	border-radius: 10px;
+	padding: 10px;
+
+	pre.highlight {
+		margin: 0;
+	}
 
 	.c, .c1, .cd {
 		color: var(--syntax-color-1);
