@@ -70,13 +70,8 @@ So to summarize the above paragraph in an example, this is what you would have t
 output every file with a `File:` prefix:
 
 ```bash
-find src/Sulu/Bundle/*/Resources/config/lists/\
-    -name "*.xml"\
-    -exec echo "File: {}" \;
+find src/Sulu/Bundle/*/Resources/config/lists/ -name "*.xml" -exec echo "File: {}" \;
 ```
-
-*Note: The `\` at the end of line allows to split a command in several lines, so the above examples can be easily
-copied*
 
 Now that we have found a way to execute a command for multiple files we need to find the command we want to execute for
 them. For the purpose of finding a string within a text the `grep` command is a very popular choice. It executes a
@@ -106,9 +101,7 @@ That returns all occurences of the regex, without the rest of the line, but only
 that command with the `find` command from above:
 
 ```bash
-find src/Sulu/Bundle/*/Resources/config/lists/\
-    -name "*.xml"\
-    -exec grep -o 'filter-type="[^"]*"' "{}" \;
+find src/Sulu/Bundle/*/Resources/config/lists/ -name "*.xml" -exec grep -o 'filter-type="[^"]*"' "{}" \;
 ```
 
 Nice! Now a list where all entries have the form of `filter-type="<filter-type-value>"`. That's something we can
@@ -125,11 +118,7 @@ used. This allows the `sort` command to sort the output of the `find` command. A
 operator to pass this sorted data to the `uniq` command, which will then omit the lines appearing multiple times.
 
 ```bash
-find src/Sulu/Bundle/*/Resources/config/lists/\
-    -name "*.xml"\
-    -exec grep -o 'filter-type="[^"]*"' "{}" \;\
-    | sort\
-    | uniq
+find src/Sulu/Bundle/*/Resources/config/lists/ -name "*.xml" -exec grep -o 'filter-type="[^"]*"' "{}" \; | sort | uniq
 ```
 
 And that's it! This command will show a list with all occurences of values appearing in the `filter-type` attribute a

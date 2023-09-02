@@ -16,9 +16,7 @@ authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication
 [curl](https://curl.se/), which can send the necessary `Authorization` header using its `-H` flag:
 
 ```bash
-curl -X GET \
-    -H "Authorization: Bearer some-lengthy-but-not-infinitely-valid-token" \
-    localhost/some-uuid-that-might-be-valid-only-once
+curl -X GET -H "Authorization: Bearer some-lengthy-but-not-infinitely-valid-token" localhost/some-uuid-that-might-be-valid-only-once
 ```
 
 While this basically works, it is still problematic from a shell history perspective. I already hinted at the problems
@@ -38,9 +36,7 @@ the [fish shell](https://fishshell.com/):
 set TOKEN some-lengthy-but-not-infinitely-valid-token
 set UUID some-uuid-that-might-be-valid-only-once
 
-curl -X GET \
-    -H "Authorization: Bearer $TOKEN" \
-    localhost/$UUID
+curl -X GET -H "Authorization: Bearer $TOKEN" localhost/$UUID
 ```
 
 This might look like more work for the first command (who am I  kidding, it also is more work for the first command),
@@ -69,9 +65,7 @@ in any shell. This is how such a command can look like:
 ```bash
 set TOKEN some-lengthy-but-not-infinitely-valid-token
 
-curl -X GET \
-    -H "Authorization: Bearer $TOKEN" \
-    localhost/item/(curl -X POST -H "Authorization: Bearer $TOKEN" localhost/item | jq -r .id)
+curl -X GET -H "Authorization: Bearer $TOKEN" localhost/item/(curl -X POST -H "Authorization: Bearer $TOKEN" localhost/item | jq -r .id)
 ```
 
 In this case, using the environment variable makes even more sense since the token has to be used twice in the same
