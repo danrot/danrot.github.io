@@ -129,7 +129,13 @@ interface ItemRepositoryInterface
      * @return Item[]
      */
     public function loadAll(): array;
+
+    /**
+     * @return Item[]
+     */
+    public function loadFilteredByTitle(string $titleFilter): array;
 }
+
 ```
 
 **The contract defined in this interface allows the application to not care about which kind of storage is used, and
@@ -142,8 +148,8 @@ case comes in.
 As mentioned previously, the abstract test class is responsible for ensuring that all implementations of the
 `ItemRepositoryInterface` behave in the same way. One characteristic of repositories is that adding the same object
 twice will result in having the object only once in the repository. So let's test that and adding two different objects
-to the repository. Since currently the `ItemRepository` interface only has a method to add an `Item` and load all
-available ones this covers all of its functionality already.
+to the repository as well as filtering items by their title. Since currently the `ItemRepository` interface only has
+three methods this covers all of its functionality already.
 
 ```php
 <?php
@@ -194,6 +200,27 @@ abstract class AbstractItemRepositoryTest extends KernelTestCase
         $this->assertCount(2, $items);
         $this->assertContains($item1, $items);
         $this->assertContains($item2, $items);
+    }
+
+    public function testLoadFilteredByTitle(): void
+    {
+        $itemRepository = $this->createItemRepository();
+
+        $item1 = new Item('Test title 1', 'Test description 1');
+        $item2 = new Item('Title 2', 'Description 2');
+        $item3 = new Item('Test title 3', 'Test description 2');
+
+        $itemRepository->add($item1);
+        $itemRepository->add($item2);
+        $itemRepository->add($item3);
+
+        $this->flush();
+
+        $items = $itemRepository->loadFilteredByTitle('Test title');
+
+        $this->assertCount(2, $items);
+        $this->assertContains($item1, $items);
+        $this->assertContains($item3, $items);
     }
 }
 ```
@@ -295,8 +322,21 @@ class ItemRepository implements ItemRepositoryInterface
             ->getResult()
         ;
     }
-}
 
+    public function loadFilteredByTitle(string $titleFilter): array
+    {
+        /** @var Item[] */
+        return $this->entityManager
+            ->createQueryBuilder()
+            ->from(Item::class, 'i')
+            ->select('i')
+            ->where('i.title LIKE :titleFilter')
+            ->setParameter('titleFilter', $titleFilter . '%')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+}
 ```
 
 The tests for the memory implementation are a bit simpler since there is no dependency like the `EntityManagerInterface`
@@ -357,9 +397,25 @@ class ItemRepository implements ItemRepositoryInterface
     {
         return $this->items;
     }
-}
 
+    public function loadFilteredByTitle(string $titleFilter): array
+    {
+        return array_values(
+            array_filter(
+                $this->items,
+                fn (Item $item) => str_contains($item->getTitle(), $titleFilter),
+            ),
+        );
+    }
+}
 ```
+
+**The only bit that is a bit cumbersome here is the `loadFilteredByTitle` method, since this method will only be
+implemented for the tests, which would not be necessary if mocks were used.** But therefore mocks might lead to wrong
+test results if the behavior of this method changes for some reason. In this example `array_filter` was used to return
+only the items matching the given criteria, but it would also be possible to use a `foreach` loop or whatever else works
+for you. Of course this is still a very simple example and depending on the actual logic this might be harder to
+implement, but I would not consider this wasted effort since it gives me confidence and fast tests.
 
 **This implementation cannot be used in a production environment unless you want every request to start with no data at
 all.** However, other than that, this implementation behaves exactly the same as Doctrine one actually storing data in
@@ -386,9 +442,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class ItemController extends AbstractController
 {
     #[Route('/items', methods: ['GET'])]
-    public function list(ItemRepositoryInterface $itemRepository): JsonResponse
+    public function list(Request $request, ItemRepositoryInterface $itemRepository): JsonResponse
     {
-        return $this->json($itemRepository->loadAll());
+        $titleFilter = $request->query->getString('titleFilter');
+        $items = $titleFilter ? $itemRepository->loadFilteredByTitle($titleFilter) : $itemRepository->loadAll();
+
+        return $this->json($items);
     }
 
     #[Route('/items', methods: ['POST'])]
@@ -495,6 +554,31 @@ class ItemControllerTest extends WebTestCase
         $this->assertEquals('Description 2', $responseData[1]->description);
     }
 
+    public function testListWithTitleFilter(): void
+    {
+        $client = static::createClient();
+
+        /** @var ItemRepositoryInterface */
+        $itemRepository = $client->getContainer()->get(ItemRepositoryInterface::class);
+
+        $itemRepository->add(new Item('Test title 1', 'Description 1'));
+        $itemRepository->add(new Item('Title 2', 'Description 2'));
+        $itemRepository->add(new Item('Test title 3', 'Description 3'));
+
+        $client->request('GET', '/items?titleFilter=Test title');
+
+        $responseContent = $client->getResponse()->getContent();
+        $this->assertNotFalse($responseContent);
+        $responseData = json_decode($responseContent);
+
+        $this->assertIsArray($responseData);
+        $this->assertCount(2, $responseData);
+        $this->assertEquals('Test title 1', $responseData[0]->title);
+        $this->assertEquals('Description 1', $responseData[0]->description);
+        $this->assertEquals('Test title 3', $responseData[1]->title);
+        $this->assertEquals('Description 3', $responseData[1]->description);
+    }
+
     public function testCreate(): void
     {
         $client = static::createClient();
@@ -515,10 +599,10 @@ class ItemControllerTest extends WebTestCase
 I will not go into every detail of testing in Symfony (the [Symfony testing
 documentation](https://symfony.com/doc/current/testing.html) already does a decent job at this), instead, I will only
 talk about the highlight: **This test relies on the `ItemRepositoryInterface` instead of the Doctrine one.** It is used
-to setup some data in the `testList` test and also to assert if data was actually stored `testCreate`. If the tests are
-run like this they will not often succeed, since the database is never reset. However, the goal of this blog post is not
-to use databases for this kind of test anyway. Therefore a `config/services_test.yaml` file is created instead, which
-contains the following lines:
+to setup some data in the `testList` and `testListWithTitleFilter` tests and also to assert if data was actually stored
+`testCreate`. If the tests are run like this they will not often succeed, since the database is never reset. However,
+the goal of this blog post is not to use databases for this kind of test anyway. Therefore a `config/services_test.yaml`
+file is created instead, which contains the following lines:
 
 ```yaml
 services:
@@ -541,7 +625,8 @@ this case.
 confidence since the memory implementation should behave very similar to the Doctrine implementation, and there is no
 need to redefine a lot of expectations in many tests as would be the case with mocks.
 
-The only downside I can think of is that in the case of repositories complex queries might be hard to implement using
-just an array, but in my opinion, this is not a real deal breaker.
+**The only downside I can think of is that in the case of repositories complex queries might be hard to implement using
+just an array, but in my opinion, this is not a real deal breaker.** And quite often some calls to array methods like
+`array_filter` already go a long way in this regard.
 
 I encourage you to try this kind of testing in a project and I am sure that you will not regret it!
