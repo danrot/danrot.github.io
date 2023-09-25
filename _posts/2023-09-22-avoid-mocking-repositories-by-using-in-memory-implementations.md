@@ -2,6 +2,7 @@
 layout: post
 title: Avoid mocking repositories by using in-memory implementations
 excerpt: Mocking libraries come with disadvantages, but fortunately they can be replaced by in-memory implementations, at least for repositories.
+last_modified_at: 2023-09-25
 
 tags:
     - testing
