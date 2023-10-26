@@ -223,11 +223,84 @@ one is setup).
 
 I have seen quite a lot of arguing about this, **but what works pretty well in my experience is to squash commits when a
 pull request is merged**. Squashing means that instead of keeping all commits in the history they will be combined in
-one new single commit. Teams using pull requests usually do so to do a review before the pull request get merged, which
-often also contains some manual testing, and the pull requests typically only get merged if they do not contain any
-errors anymore.
+one new single commit.
 
-**By always squashing commits when merging pull requests it is much easier to keep a clean history with only green
+Imagine a git history that generates the following output when using `git log --graph --oneline` (i.e. showing the graph
+on the left and compress commits to a single line):
+
+```plaintext
+$ git log --graph --oneline
+* 8836470 (HEAD -> feature) Commit 6
+* cec57f4 Commit 5
+* c555d59 Commit 4
+* e715723 Commit 3
+* 55bc924 Commit 2
+* 719d88d Commit 1
+* 9ce9b8c (main) Initialize repository
+```
+
+So there is currently a branch called `feature` checked out, which adds some more commits on the `main` branch. When we
+execute a `git merge` with the `--no-ff` option it will generate a new merge commit, which has two parent commits and
+all currently existing commits continue to do so.
+
+```plaintext
+$ git switch main
+Switched to branch 'main'
+
+$ git merge --no-ff
+Merge made by the 'ort' strategy.
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+
+$ git log --graph --oneline
+*   8869431 (HEAD -> main) Merge branch 'feature'
+|\
+| * 8836470 (feature) Commit 6
+| * cec57f4 Commit 5
+| * c555d59 Commit 4
+| * e715723 Commit 3
+| * 55bc924 Commit 2
+| * 719d88d Commit 1
+|/
+* 9ce9b8c Initialize repository
+```
+
+Now the graph on the left shows two different paths that will be combined in the merge commit. **Seeing the entire
+history with all commits can also be valuable, but only if all commits are properly working.** If those commits are not
+working and/or contain commit message like shown in the introduction of this blog post they will cause more harm than
+good by bloating the git history for no good reason. This complicates everything, especially the `git bisect` command
+shown previously.
+
+Squashing commits can be done by using the `--squash` option of the `git merge` command. Then the changes from all
+commits will be added to the staging area, from where they can be committed as usual.
+
+```plaintext
+$ git merge --squash feature
+Updating 9ce9b8c..8836470
+Fast-forward
+Squash commit -- not updating HEAD
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+
+$ git commit -m "Feature"
+[main a0ebc67] Feature
+ 1 file changed, 2 insertions(+)
+```
+
+After this procedure the history looks completely different, although the end result is the same. All commits from the
+`feature` branch have not landed in the `main` branch, instead all changes are squashed into a single commit.
+
+```plaintext
+$ git log --graph --oneline
+* a0ebc67 (HEAD -> main) Feature
+* 9ce9b8c Initialize repository
+```
+
+***This leads to a linear history and if pull requests are properly reviewed to working commits and therefore to a clean
+history.** Teams working with pull requests usually do such pull request reviews, sometimes even with manual testing,
+which should avoid having commits that do not work at all.
+
+**So by always squashing commits when merging pull requests it is much easier to keep a clean history with only green
 commits.** This also ensures that features like `git bisect` can do their work properly. **The only downside with
 regards to `git bisect` I can think of is that it yields bigger commits when pull requests are squashed**, which makes
 hunting down the error harder, since the commit might return hundreds of lines, and not just a few. However, this is
