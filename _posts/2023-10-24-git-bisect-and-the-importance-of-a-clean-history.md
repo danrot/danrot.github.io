@@ -28,8 +28,8 @@ using a short line acting as a heading, which can be followed a thorough descrip
 description is [this (at the time of writing) recent commit in the Linux
 kernel](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=eb96e221937af3c7bb8a63208dbab813ca5d3d7e).
 Yes, almost everything until the start of the diff itself is the commit message, and while I am not that fluent with the
-development of an operating system, I am pretty sure that there is quite some interesting information in it, which **I
-am sure might be useful when hunting down a bug or trying to better understand some decisions later**.
+development of an operating system, **I am pretty sure that there is quite some interesting information in it, which
+might be useful when hunting down a bug or trying to better understand some decisions later**.
 
 But having a clean commit history does not stop at commit messages. Although this is already a big help, git can help a
 lot more when it is being mastered. Some features only work well if [branches are kept
@@ -121,9 +121,9 @@ Bisecting: 0 revisions left to test after this (roughly 1 step)
 [124439abe0fb289109f915dcdd07f1ecb0041f79] Add support for subtraction
 ```
 
-**By doing half of the commits have already been eliminated as the cause of the bug.** Since the older commit used to
-work and the commit in the middle of the range is still working, the error must be introduced even later. Git knows that
-now and automatically checked out the next commit, which is in the middle of the even narrower range left.
+**By doing so half of the commits have already been eliminated as the cause of the bug.** Since the older commit used to
+work and the commit in the middle of the range is still working, the error must be introduced later. Git knows that now
+and automatically checked out the next commit, which is in the middle of the even narrower range left.
 
 So let's test again and type `git bisect bad` afterwards, since we will see that the error occurs now.
 
@@ -190,7 +190,7 @@ index 7800bbe..6a83dd9 100644
 **Knowing that these two added lines are causing the error makes the bug hunting a lot easier.** In this example the
 reason was a missing `break` statement.
 
-Now this was a rather small example, but the interesting part is that [Binary
+Now this was a rather small example, but the interesting part is that [binary
 search](https://en.wikipedia.org/wiki/Binary_search_algorithm) has an logarithmic complexity, i.e. the savings get much
 bigger with an increasing number of commits, e.g. **if the specified range contains 100 commits roughly 7 steps will be
 necessary to find the commit in question**.
@@ -205,10 +205,10 @@ But now the catch: **All of this can only work with a clean git history containi
 the development team is not so strict about branches being healthy. This might lead to a situations in which already the
 bootstrapping of the application and therefore every program execution fails. **In that case the `git bisect` command is
 rendered useless**, since developers using it cannot tell if the error they are looking for appears in the current
-commit or if the program just failed before the error could appear.
+commit or if the program already failed before the error could appear.
 
-So having a clean and healthy branch is not just an academic exercise, if features like `git bisect` should be used
-having a clean history is non-optional. And it would really be a pity to not be able to use one of git's most awesome
+**So having a clean and healthy branch is not just an academic exercise, if features like `git bisect` should be used
+having a clean history is non-optional.** And it would really be a pity to not be able to use one of git's most awesome
 features. This is one of the reasons I consider [keeping all commits
 green](https://kellysutton.com/2019/07/15/keep-all-commits-green.html) a best practice.
 
@@ -239,9 +239,9 @@ $ git log --graph --oneline
 * 9ce9b8c (main) Initialize repository
 ```
 
-So there is currently a branch called `feature` checked out, which adds some more commits on the `main` branch. When we
-execute a `git merge` with the `--no-ff` option it will generate a new merge commit, which has two parent commits and
-all currently existing commits continue to do so.
+So there is currently a branch called `feature` checked out, which adds some more commits on top of the `main` branch.
+When we execute a `git merge` with the `--no-ff` option it will generate a new merge commit, which has two parent
+commits and all currently existing commits continue to do so.
 
 ```plaintext
 $ git switch main
@@ -296,7 +296,7 @@ $ git log --graph --oneline
 * 9ce9b8c Initialize repository
 ```
 
-***This leads to a linear history and if pull requests are properly reviewed to working commits and therefore to a clean
+**This leads to a linear history and if pull requests are properly reviewed to working commits and therefore to a clean
 history.** Teams working with pull requests usually do such pull request reviews, sometimes even with manual testing,
 which should avoid having commits that do not work at all.
 
@@ -307,7 +307,8 @@ hunting down the error harder, since the commit might return hundreds of lines, 
 still better than not being able to use the feature at all, because some developers commit code not working properly.
 Luckily both
 [GitHub](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)
-and [Bitbucket](https://bitbucket.org/blog/git-squash-commits-merging-bitbucket) support squashing commits.
+and [Bitbucket](https://bitbucket.org/blog/git-squash-commits-merging-bitbucket) support squashing commits when merging
+pull requests.
 
 A completely different approach would be to use [continuous
 integration](https://martinfowler.com/articles/branching-patterns.html#continuous-integration), and by that I do not
