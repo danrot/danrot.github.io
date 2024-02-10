@@ -2,6 +2,7 @@
 layout: post
 title: git bisect and the importance of a clean history
 excerpt: The value of a clean git history is often underestimated. I will explain one of the advantages based on the git bisect command.
+last_modified_at: 2024-02-10
 
 tags:
     - git
@@ -76,8 +77,10 @@ causing the issue. However, if the issues persisted for quite a long time there 
 which still results in a very high effort.
 
 Luckily, git comes with an awesome command called `git bisect`. `bisect` stands for "binary search commit", and this is
-exactly what it does. It performs a [binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm) using the git
-history, which leads to much less effort when looking for a specific commit. Let's see how that works in practice.
+exactly what it does (*Edit: [I've been told that `bisect` is actually a word on its
+own](https://lemmy.ml/comment/8081857), meaning to cut in half, not sure where I got this "binary search commit" theory
+from*). It performs a [binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm) using the git history,
+which leads to much less effort when looking for a specific commit. Let's see how that works in practice.
 
 First of all the binary search is started using `git bisect start` followed by a `git bisect good` indicating that the
 currently checked out commit is not working.
@@ -206,6 +209,10 @@ the development team is not so strict about branches being healthy. This might l
 bootstrapping of the application and therefore every program execution fails. In that case, **the `git bisect` command
 is rendered useless since developers using it cannot tell if the error they are looking for appears in the current
 commit or if the program already failed before the error could appear**.
+
+*Edit: [Apparently there is also the possibility to skip commits during the `git bisect` process by executing `git
+bisect skip`.](https://lemmy.ml/comment/8081974) I did not know about that when initially writing this blog post. This
+might work somehow, but this feature is definitely easier to handle and produces better results with clean commits.*
 
 **So having a clean and healthy branch is not just an academic exercise, if features like `git bisect` should be used
 having a clean history is non-optional.** And it would really be a pity to not be able to use one of git's most awesome
