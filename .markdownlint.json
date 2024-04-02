@@ -34,6 +34,7 @@
     "proper-names": {
         "names": [
 			"curl",
+			"D3.js",
 			"Doctrine",
 			"Firefox",
 			"Flow",
@@ -45,7 +46,7 @@
 			"Neovim",
 			"TypeScript",
 			"typescript-eslint",
-			"D3.js"
+			"Vue"
 		]
     },
     "no-alt-text": true,
