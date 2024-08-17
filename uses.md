@@ -29,9 +29,9 @@ working on.
 
 ## Editor
 
-I use [Neovim](http://neovim.io/) as an editor respectively IDE exclusively. In contrast to popular belief it comes with
-everything I need, including auto-completion and debugging. Maybe it takes a bit more time to set everything up the way
-you like it, but in my opinion it is totally worth it. My [Neovim
+I use [Neovim](http://neovim.io/) as an editor respectively IDE exclusively. In contrast to popular belief it supports
+quite a lot, including auto-completion and debugging (at least with some extensions). Maybe it takes a bit more time to
+set everything up the way you like it, but in my opinion it is totally worth it. My [Neovim
 configuration](https://github.com/danrot/dotfiles/blob/master/nvim/init.lua) is available on GitHub.
 
 ## Terminal
