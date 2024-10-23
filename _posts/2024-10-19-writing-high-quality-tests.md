@@ -12,16 +12,16 @@ tags:
 ---
 
 Unfortunately, tests still do not get the attention they would deserve in many organizations. Sometimes it feels like
-developers feel guilty if they are no writing any tests, but at the same time test code is often not properly reviewed.
-Instead, the only thing that is often checked in a review is if there are tests, which is a shame, because just having
-tests is not good enough. Actually, they should be of at least the same quality as all other code in a project, if not
-even of higher quality. Otherwise testing might indeed hold you back, since tests fail far too often, are hard to
+developers feel guilty if they are not writing any tests, and at the same time test code is often not properly reviewed.
+Instead, the only thing that is often checked in a review is if there are any tests, which is a shame, because **just
+having tests is not good enough**. Actually, they should be of at least the same quality as all other code in a project,
+if not even of higher quality. Otherwise testing might indeed hold you back, since tests fail far too often, are hard to
 understand, or take way too long to run. I have already discussed some of these points in [my blog post about using
 in-memory implementations instead of repository
 mocks](/2023/09/22/avoid-mocking-repositories-by-using-in-memory-implementations.html). Now I want to discuss some
 other, more general, things I look out for when writing tests.
 
-## Minimalism is your friend
+## Minimalism is key
 
 [Stack Overflow asks you to add minimal, reproducible examples to
 questions](https://stackoverflow.com/help/minimal-reproducible-example), and in my opinion this is also very good advice
@@ -42,11 +42,11 @@ all of it needs to be tested in order to pass that threshold. And if somebody ma
 person could get away with writing no tests at all while still keeping a code coverage higher than 90%, which results in
 a wrong feeling of confidence.
 
-One of the excuses I often hear is that it does not make sense to write tests for simple getters and setters. And maybe
-surprisingly, I totally agree with that. But here is the catch: **If none of the tests actually use these getters and
-setters, then there is probably no need to have them.** So instead of complaining about how hard it is to achieve 100%
-test coverage, it would most likely be better to not write code that is not required in the first place. This also
-avoids the maintenance burden every line of code brings with it.
+One of the excuses I often hear is that it does not make sense to write tests for simple functions like getters and
+setters. And maybe surprisingly, I totally agree with that. But here is the catch: **If none of the tests actually use
+these getters and setters, then there is probably no need to have them.** So instead of complaining about how hard it is
+to achieve 100% test coverage, it would most likely be better to not write code that is not required in the first place.
+This also avoids the maintenance burden every line of code brings with it.
 
 However, there is a small catch: Sometimes code does weird things, which might cause code coverage tools to mark some
 lines as uncovered, even though it was executed during the test run. I did not run into situations like this a lot, but
@@ -72,8 +72,8 @@ but then there are the same issues mentioned above: Other code might also not be
 missed.
 
 With that being said, a 100% code coverage certainly does not give any guarantees that your code does not have any bugs.
-But if you do have uncovered lines in your application code it is a guarantee that your tests will not spot potential
-errors in that line.
+But if you do have uncovered lines in your application code you are not even giving your tests a change to spot
+potential errors in that line.
 
 ## Write good assertions
 
@@ -110,7 +110,7 @@ The problem with this test is the output it generates in case the status code is
 development environment, Symfony will return an error page when this URL is accessed, and the
 `assertResponseStatusCodeSame` method will output the entire response in case the assertion fails. This output is
 incredibly long, since this does not only return HTML, but also CSS and JavaScript, and my scrollback buffer is
-literally too small to display the entire message.
+literally too small to allow me to read the entire message.
 
 This is absolutely the worst example I have encountered so far, but it can also be annoying if the wrong assertions are
 used in the code. Let us have a look at the output of the `assertSelectorCount` assertion above, which fails with the
@@ -168,7 +168,7 @@ the rendered markup of the `Component` changes the tests will fail. Second, the 
 does not explain what the author actually wanted to test.
 
 However, what I really enjoyed about it, was that whenever I changed a component, it reminded me of all other components
-using that component, because all those snapshots failed on the first run. For this reason I liked having at least one
+using that component, because all those snapshots failed on the next run. For this reason I liked having at least one
 snapshot test per component.
 
 ## Conclusion
