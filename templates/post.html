@@ -1,0 +1,18 @@
+<article>
+	<header>
+		<h1>$title$</h1>
+		<div>${for(tags) }${tags}${sep}, ${endfor}</div>
+		<time datetime="$date$" pubdate>$date$</time>
+		$if(last_modified_at)$(last modified on <time datetime="$last_modified_at$">$last_modified_at$</time>)$endif$
+	</header>
+
+	$body$
+
+	<footer>
+		<div>
+			Any thoughts? Contact me on <a href="https://www.linkedin.com/in/rotter-daniel/">LinkedIn</a> or
+			<a href="https://mastodon.social/@danrot">Mastodon</a> and share them with me! If you liked this article
+			and you want to support me consider <a href="https://ko-fi.com/danrot">buying me a beer</a>.
+		</div>
+	</footer>
+</article>

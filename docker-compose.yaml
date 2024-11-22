@@ -1,0 +1,7 @@
+services:
+    nginx:
+        image: nginx
+        ports:
+            - 4000:80
+        volumes:
+            - ./dist:/usr/share/nginx/html:cache
