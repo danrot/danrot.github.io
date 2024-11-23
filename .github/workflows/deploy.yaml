@@ -1,0 +1,31 @@
+name: Deploy
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    deploy:
+        name: Deploy
+        runs-on: ubuntu-24.04
+        environment: production
+        steps:
+            -
+                name: Checkout project
+                uses: actions/checkout@v4
+            -
+                name: Install dependencies
+                run: sudo apt install pandoc ripgrep
+            -
+                name: Build project
+                run: make
+            -
+                name: Set up SSH
+                run: |
+                    mkdir -p ~/.ssh
+                    echo "${{ secrets.HETZNER_SSH_KEY }}" > ~/.ssh/danielrotter-deploy
+                    chmod 600 ~/.ssh/danielrotter-deploy
+                    ssh-keyscan ${{ secrets.HETZNER_HOST }} >> ~/.ssh/known_hosts
+            -
+                name: Deploy
+                run: scp -i ~/.ssh/danielrotter-deploy -r dist/* ${{ secrets.HETZNER_USER }}@${{ secrets.HETZNER_HOST }}:${{ secrets.HETZNER_PATH }}

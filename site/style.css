@@ -1,0 +1,194 @@
+@media (prefers-color-scheme: light) {
+	:root {
+		--strong-background-color: #ffff80;
+		--code-background-color: #eee;
+		--syntax-color-1: #666;
+		--syntax-color-2: #b85200;
+		--syntax-color-3: #075eb0;
+		--syntax-color-4: #856011;
+		--syntax-color-5: #a81990;
+		--syntax-color-6: #2e6b36;
+		--syntax-color-7: #0e807e;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--body-background-color: #222;
+		--body-color: #ddd;
+		--a-link-color: #9ed8fa;
+		--a-visited-color: #a557eb;
+		--strong-background-color: #573400;
+		--code-background-color: #333;
+		--syntax-color-1: #aaa;
+		--syntax-color-2: #fc7405;
+		--syntax-color-3: #47a1f5;
+		--syntax-color-4: #cfa54a;
+		--syntax-color-5: #f086de;
+		--syntax-color-6: #5bba68;
+		--syntax-color-7: #27b8b5;
+	}
+
+	img[src="/images/github.svg"] {
+		filter: invert(100%);
+	}
+}
+
+a:link {
+	color: var(--a-link-color, revert);
+}
+
+a:visited {
+	color: var(--a-visited-color, revert);
+}
+
+h1 {
+	font-size: 2.5em;
+}
+
+h2 {
+	font-size: 2em;
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+strong {
+	background-color: var(--strong-background-color);
+}
+
+body {
+	background-color: var(--body-background-color, revert);
+	color: var(--body-color, revert);
+
+	> header {
+		address {
+			a[rel="author"] {
+				color: inherit;
+				font-size: 2em;
+				font-style: normal;
+				font-weight: bold;
+				text-decoration: none;
+				vertical-align: middle;
+			}
+
+			a[rel="author"] + div {
+				font-size: 1.5em;
+				margin-bottom: 0.5em;
+			}
+
+			a:not([rel="author"]) {
+				display: inline-block;
+				height: 2em;
+				text-decoration: none;
+				vertical-align: middle;
+
+				img {
+					height: 2em;
+					width: 2em;
+				}
+			}
+		}
+
+		address + p {
+			margin: 0.5em 0;
+		}
+	}
+}
+
+article {
+	margin-top: 3em;
+
+	h1 {
+		margin: 0;
+	}
+
+	p, ul, ol {
+		max-width: 50em;
+	}
+
+	figure {
+		max-width: 50em;
+
+		img {
+			max-width: 100%;
+		}
+	}
+
+	footer {
+		font-style: italic;
+		margin-top: 3em;
+	}
+}
+
+code:not(div.sourceCode code):not(pre.plaintext code) {
+	background-color: var(--code-background-color);
+	border-radius: 2px;
+	padding: 2px;
+}
+
+div.sourceCode, pre.plaintext {
+	overflow: scroll;
+	background-color: var(--code-background-color);
+	border-radius: 10px;
+	padding: 10px;
+
+	pre {
+		margin: 0;
+	}
+
+	.an, .co, .do {
+		color: var(--syntax-color-1);
+	}
+
+	.cf, .kw {
+		color: var(--syntax-color-2);
+	}
+
+	.ex, .fu {
+		color: var(--syntax-color-3);
+	}
+
+	.at, .dt, .ot {
+		color: var(--syntax-color-4);
+	}
+
+	.bu, .va {
+		color: var(--syntax-color-5);
+	}
+
+	.st {
+		color: var(--syntax-color-6);
+	}
+
+	.dv {
+		color: var(--syntax-color-7);
+	}
+
+	.html, .xml {
+		.kw {
+			color: var(--syntax-color-4);
+		}
+	}
+
+	.css, .yaml {
+		.kw, .fu {
+			color: var(--syntax-color-5);
+		}
+
+		.at {
+			color: var(--syntax-color-6);
+		}
+	}
+
+	.json {
+		.fu, .ot {
+			color: inherit;
+		}
+
+		.dt {
+			color: var(--syntax-color-5);
+		}
+	}
+}
