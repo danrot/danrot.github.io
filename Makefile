@@ -4,7 +4,7 @@ URL=https://danielrotter.at
 
 STYLES=${DIST_FOLDER}/style.css
 ROBOTS=${DIST_FOLDER}/robots.txt
-PAGES=${patsubst ${SITE_FOLDER}/%,${DIST_FOLDER}/%,${addsuffix .html,${basename ${wildcard ${SITE_FOLDER}/*.md}}}}
+PAGES=${patsubst ${SITE_FOLDER}/%,${DIST_FOLDER}/%,${addsuffix .html,${basename ${filter-out ${SITE_FOLDER}/404.md,${wildcard ${SITE_FOLDER}/*.md}}}}}
 POSTS=${patsubst ${SITE_FOLDER}/%,${DIST_FOLDER}/%,${addsuffix .html,${basename ${wildcard ${SITE_FOLDER}/*/*/*/*.md}}}}
 IMAGES=${patsubst ${SITE_FOLDER}/%,${DIST_FOLDER}/%,${filter-out ${SITE_FOLDER}/images/posts,${wildcard ${SITE_FOLDER}/images/*}}}
 POSTS_IMAGES=${patsubst ${SITE_FOLDER}/%,${DIST_FOLDER}/%,${wildcard ${SITE_FOLDER}/images/posts/*}}
@@ -18,7 +18,7 @@ FEED_XML=dist/feed.xml
 .SUFFIXES:
 SHELL=/bin/bash -ex
 
-website: ${STYLES} ${ROBOTS} ${PAGES} ${POSTS} ${IMAGES} ${POSTS_IMAGES} ${INDEX_HTML} dist/sitemap.xml dist/feed.xml
+website: ${STYLES} ${ROBOTS} ${PAGES} ${POSTS} ${IMAGES} ${POSTS_IMAGES} ${INDEX_HTML} dist/sitemap.xml dist/feed.xml dist/404.html
 
 ${INDEX_HTML}: ${POSTS} ${PAGES}
 	[ ! -f ${INDEX_MD} ] || rm ${INDEX_MD}
