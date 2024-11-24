@@ -55,4 +55,4 @@ Disallow: /
 User-agent: YouBot
 Disallow: /
 
-Sitemap: {{ "sitemap.xml" | absolute_url }}
+Sitemap: https://danielrotter.at/sitemap.xml
