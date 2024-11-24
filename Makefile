@@ -13,6 +13,7 @@ INDEX_HTML=dist/index.html
 INDEX_MD =dist/index.md
 SITEMAP_XML=dist/sitemap.xml
 FEED_XML=dist/feed.xml
+MASTER_TEMPLATE=templates/master.html
 
 .PHONY: mkdir
 .SUFFIXES:
@@ -20,7 +21,7 @@ SHELL=/bin/bash -ex
 
 website: ${STYLES} ${ROBOTS} ${PAGES} ${POSTS} ${IMAGES} ${POSTS_IMAGES} ${INDEX_HTML} dist/sitemap.xml dist/feed.xml dist/404.html
 
-${INDEX_HTML}: ${POSTS} ${PAGES}
+${INDEX_HTML}: ${POSTS} ${PAGES} ${MASTER_TEMPLATE}
 	[ ! -f ${INDEX_MD} ] || rm ${INDEX_MD}
 	[ ! -f ${INDEX_HTML} ] || rm ${INDEX_HTML}
 	echo '## Blog posts' >> ${INDEX_MD}
@@ -38,7 +39,7 @@ ${INDEX_HTML}: ${POSTS} ${PAGES}
 		echo "- [$$title]($${file#${DIST_FOLDER}}): $$excerpt" >> ${INDEX_MD} ; \
 	done
 	pandoc \
-		--template templates/master.html \
+		--template ${MASTER_TEMPLATE} \
 		--wrap=none \
 		-M excerpt='${DESCRIPTION}' \
 		-M url=${URL} \
@@ -109,10 +110,10 @@ ${FEED_XML}: ${POSTS}
 
 	echo '</feed>' >> ${FEED_XML}
 
-${DIST_FOLDER}/%.html: ${SITE_FOLDER}/%.md
+${DIST_FOLDER}/%.html: ${SITE_FOLDER}/%.md ${MASTER_TEMPLATE}
 	[ -d $(@D) ] || mkdir -p $(@D)
 	pandoc \
-		--template templates/master.html \
+		--template ${MASTER_TEMPLATE} \
 		--wrap=none \
 		-M date=${subst /,-,${patsubst %/,%,${patsubst ${DIST_FOLDER}/%,%,${dir $@}}}} \
 		-M url=${URL}/${patsubst ${DIST_FOLDER}/%,%,$@} \
